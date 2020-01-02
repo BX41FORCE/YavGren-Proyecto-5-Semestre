@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RegistroComponent } from './registro/registro.component';
 import { CrearNoticiaComponent } from './crear-noticia/crear-noticia.component';
+import { CrearEventoComponent } from './crear-evento/crear-evento.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CrearNoticiaComponent } from './crear-noticia/crear-noticia.component';
     NavbarComponent,
     InicioComponent,
     RegistroComponent,
-    CrearNoticiaComponent
+    CrearNoticiaComponent,
+    CrearEventoComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
