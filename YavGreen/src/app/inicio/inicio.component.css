@@ -1,0 +1,15 @@
+img {
+  width: auto;
+  height: 240px;
+  border-radius: 6px;
+}
+#modalImg {
+  width: auto;
+  height: 150px;
+  border-radius: 6px;
+}
+#eventoImg {
+  width: 200px;
+  height: 130px;
+  border-radius: 6px;
+}
