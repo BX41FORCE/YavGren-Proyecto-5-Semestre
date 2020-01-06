@@ -7,26 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  qrcodename : string;
+  /*titulo : string;
+  qrcodename : number;
   title = 'generate-qrcode';
   elementType: 'url' | 'canvas' | 'img' = 'url';
   value: string;
   display = false;
   href : string;
   generateQRCode(){
-    if(this.qrcodename == ''){
+    if(this.qrcodename.toString() == ''){
       this.display = false;
       alert("Please enter the name");
       return;
     }
     else{
-      this.value = this.qrcodename;
+      this.value = this.titulo+"\n"+this.qrcodename.toString();
       this.display = true;
     }
   }
   downloadImage(){
     this.href = document.getElementsByTagName('img')[0].src;
-  }
+  }*/
   
   
   
