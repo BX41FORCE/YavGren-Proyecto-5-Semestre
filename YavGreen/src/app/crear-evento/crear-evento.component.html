@@ -21,6 +21,9 @@
                 <label for="puntaje">Puntaje total del objetivo</label>
                 <input type="number" class="form-control col" placeholder="Puntaje total del objetivo" [(ngModel)]="qrcodename" value="" required>
                 <br />
+                <label for="puntaje">Código del Evento</label>
+                <input id="codigo" type="number" class="form-control col" placeholder="Código del Evento" [(ngModel)]="codigo" disabled>
+                <br />
                 <button class="btn btn-lg btn-primary btn-sm" (click)="generateQRCode() ">Generar Código
                     QR</button>
                 <ngx-qrcode *ngIf="display " id="qrCodeImage " [qrc-element-type]="elementType " [qrc-value]="value ">
