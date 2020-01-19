@@ -1,5 +1,7 @@
 {
   "name": "YavGreenMovil",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
