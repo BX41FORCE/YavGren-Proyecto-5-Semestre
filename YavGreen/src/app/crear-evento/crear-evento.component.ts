@@ -76,7 +76,7 @@ export class CrearEventoComponent implements OnInit {
       alert("Solo puede ingresar un valor entre 50 y 100 puntos");
       this.qrcodename = null;
     }
-    // No borrar este código es para la lectura del QR en el Movil //
+    // No borrar este código es para la lectura del QR en el Movil//
     /*
     var nombre = "";
     var puntaje = "";
