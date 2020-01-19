@@ -1,38 +1,42 @@
 <div class="col-12 order-md-1">
     <div class="jumbotron" style="color: #B8CD33;background-color: #3F3F3F;">
-        <h1 class="mb-3">Creación de eventos</h1>
-        <form class="form-signin">
-            <div class="row">
-                <div class="col">
-                    <label for="titulo">Nombre del Evento</label>
-                    <input type="text" class="form-control col" placeholder="Nombre del evento" value="" required>
-                    <br />
-                    <label for="fecha">Fecha del Evento</label>
-                    <input type="text" class="form-control col" placeholder="Fecha del evento" value="" required>
-                    <br />
-                    <label for="lugar">Lugar del Evento</label>
-                    <input type="text" class="form-control col" placeholder="Lugar del evento" value="" required>
-                    <br />
-                </div>
-                <div class="col">
-                    <label for="objetivo">Objetivo del Evento</label>
-                    <p></p>
-                    <textarea class="col" placeholder="Objetivo del evento" cols="40" rows="4"
-                        style="resize: both;"></textarea>
-                    <br />
-                    <label for="puntaje">Puntaje total del objetivo</label>
-                    <input type="number" class="form-control col" placeholder="Puntaje total del objetivo" value="" required>
-                    <br />
-                </div>
-            </div>
-        </form>
-        <div class="row col-6">
+        <h1 class="mb-3">Creación de Eventos</h1>
+        <div class="row">
             <div class="col">
-                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;"
-                    type="submit">Crear Noticia</button>
-                <button class="btn btn-outline-white btn-sm" disabled></button>
-                <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;"
-                    type="submit">Cancelar</button>
+                <label for="titulo">Nombre del Evento</label>
+                <input type="text" class="form-control col" placeholder="Nombre del evento" [(ngModel)]="titulo" value="" required>
+                <br />
+                <label for="fecha">Fecha del Evento</label>
+                <input type="date" class="form-control col" placeholder="Fecha del evento" value="" required>
+                <br />
+                <label for="lugar">Lugar del Evento</label>
+                <input type="text" class="form-control col" placeholder="Lugar del evento" value="" required>
+                <br />
+                <label for="objetivo">Objetivo del Evento</label>
+                <p></p>
+                <textarea class="col" placeholder="Objetivo del evento" cols="40" rows="4" style="resize: both;"></textarea>
+                <br />
+            </div>
+            <div class="col">
+                <label for="puntaje">Puntaje total del objetivo</label>
+                <input type="number" min="50" max="100" class="form-control col" placeholder="Puntaje total del objetivo" [(ngModel)]="qrcodename" value="" required>
+                <br />
+                <label for="puntaje">Código del Evento</label>
+                <input class="form-control col" placeholder="Código del Evento" [(ngModel)]="codigo" disabled>
+                <br />
+                <button class="btn btn-lg btn-primary btn-sm" (click)="generateQRCode() ">Generar Código
+                    QR</button>
+                <ngx-qrcode *ngIf="display " id="qrCodeImage " [qrc-element-type]="elementType " [qrc-value]="value ">
+                </ngx-qrcode>
+                <p></p>
+                <a [href]="href " *ngIf="display " (click)="downloadImage() " download>Descargar Imagen</a>
+            </div>
+        </div>
+        <div class="row col-6 ">
+            <div class="col ">
+                <button class="btn btn-lg btn-outline-secondary btn-sm " style="background-color: #B8CD33; " type="submit " (click)="evaluar()">Crear Noticia</button>
+                <button class="btn btn-outline-white btn-sm " disabled></button>
+                <button class="btn btn-lg btn-outline-dark btn-sm " style="background-color: #F54A4B; " type="submit ">Cancelar</button>
             </div>
         </div>
         <br />

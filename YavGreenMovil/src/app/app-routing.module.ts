@@ -14,10 +14,42 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }, {
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'lector-qr',
+    loadChildren: () => import('./lector-qr/lector-qr.module').then( m => m.LectorQrPageModule)
+  },
+  {
+    path: 'canjeo',
+    loadChildren: () => import('./canjeo/canjeo.module').then( m => m.CanjeoPageModule)
+  },
+  {
+    path: 'persona',
+    loadChildren: () => import('./persona/persona.module').then( m => m.PersonaPageModule)
+  },
+  {
+    path: 'evento',
+    loadChildren: () => import('./evento/evento.module').then( m => m.EventoPageModule)
+  },
+  {
+    path: 'noticia',
+    loadChildren: () => import('./noticia/noticia.module').then( m => m.NoticiaPageModule)
   }
+
+
+
 ];
 
 @NgModule({
@@ -26,4 +58,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
