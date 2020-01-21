@@ -12,29 +12,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
+      title: 'Inicio',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
       title: 'Login',
       url: '/login',
-      icon: 'help'
+      icon: 'md-contact'
     },
     {
       title: 'Registro',
       url: '/registro',
-      icon: 'help'
-    },
-    {
-      title: 'Lector de Puntos',
-      url: '/lector-qr',
-      icon: 'qr-scanner'
+      icon: 'md-person-add'
     },
     {
       title: 'Perfil',
@@ -42,19 +32,29 @@ export class AppComponent {
       icon: 'person'
     },
     {
-      title: 'Canjeo',
-      url: '/canjeo',
-      icon: 'appstore'
+      title: 'Lector de Puntos',
+      url: '/lector-qr',
+      icon: 'qr-scanner'
     },
     {
       title: 'Noticias',
       url: '/noticia',
-      icon: 'browsers'
+      icon: 'md-paper'
     },
     {
       title: 'Evento',
       url: '/evento',
-      icon: 'browsers'
+      icon: 'md-calendar'
+    },
+    {
+      title: 'Canjeo',
+      url: '/canjeo',
+      icon: 'md-card'
+    },
+    {
+      title: 'List',
+      url: '/list',
+      icon: 'list'
     }
   ];
 
