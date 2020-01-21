@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col">
                 <label for="titulo">Nombre del Evento</label>
-                <input type="text" class="form-control col" placeholder="Nombre del evento" [(ngModel)]="titulo" value="" required>
+                <input type="text" class="form-control col" placeholder="Nombre del evento" [(ngModel)]="titulo"
+                    value="" required>
                 <br />
                 <label for="fecha">Fecha del Evento</label>
                 <input type="date" class="form-control col" placeholder="Fecha del evento" value="" required>
@@ -14,18 +15,21 @@
                 <br />
                 <label for="objetivo">Objetivo del Evento</label>
                 <p></p>
-                <textarea class="col" placeholder="Objetivo del evento" cols="40" rows="4" style="resize: both;"></textarea>
+                <textarea class="col" placeholder="Objetivo del evento" cols="40" rows="4"
+                    style="resize: both;"></textarea>
                 <br />
             </div>
             <div class="col">
                 <label for="puntaje">Puntaje total del objetivo</label>
-                <input type="number" min="50" max="100" class="form-control col" placeholder="Puntaje total del objetivo" [(ngModel)]="qrcodename" value="" required>
+                <input type="number" min="50" max="100" class="form-control col"
+                    placeholder="Puntaje total del objetivo" [(ngModel)]="qrcodename" value="" required>
                 <br />
                 <label for="puntaje">Código del Evento</label>
                 <input class="form-control col" placeholder="Código del Evento" [(ngModel)]="codigo" disabled>
                 <br />
                 <button class="btn btn-lg btn-primary btn-sm" (click)="generateQRCode() ">Generar Código
                     QR</button>
+                <p></p>
                 <ngx-qrcode *ngIf="display " id="qrCodeImage " [qrc-element-type]="elementType " [qrc-value]="value ">
                 </ngx-qrcode>
                 <p></p>
@@ -35,9 +39,11 @@
         <div class="row col-6 ">
             <p></p>
             <div class="col ">
-                <button class="btn btn-lg btn-outline-secondary btn-sm " style="background-color: #B8CD33; " type="submit " (click)="evaluar()">Crear Noticia</button>
+                <button class="btn btn-lg btn-outline-secondary btn-sm " style="background-color: #B8CD33; "
+                    type="submit " (click)="evaluar()">Crear Noticia</button>
                 <button class="btn btn-outline-white btn-sm " disabled></button>
-                <button class="btn btn-lg btn-outline-dark btn-sm " style="background-color: #F54A4B; " type="submit ">Cancelar</button>
+                <button class="btn btn-lg btn-outline-dark btn-sm " style="background-color: #F54A4B; "
+                    type="submit ">Cancelar</button>
             </div>
         </div>
         <br />

@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>lectorQr</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-button expand="full" (click)="scanCode()" color="secondary">
+    <ion-icon name="qr-scanner"></ion-icon>Escanear Código
+  </ion-button>
+  <ion-button expand="full" (click)="codificar()" color="primary">
+    Ver Resultado
+  </ion-button>
+  <!--<ngx-qrcode [qrc-element-type]="elementType" [qrc-value]="qrData">
+  </ngx-qrcode>-->
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Resultado del QR : {{scannedCode}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
