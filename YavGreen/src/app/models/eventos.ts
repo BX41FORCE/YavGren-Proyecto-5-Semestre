@@ -1,3 +1,5 @@
+import { Persona } from './persona';
+
 export class Evento {
   id_evento?: number;
   nombre_evento: string;
@@ -6,5 +8,5 @@ export class Evento {
   objetivo_evento: string;
   puntaje_evento: number;
   codigo_evento: string;
-
+  persona:Persona;
 }

@@ -1,6 +1,9 @@
+import { Persona } from './persona';
+
 export class Noticias {
   id_noticias?: number;
   nombre_noticia: string;
-  //persona: Persona;
+  descripcion_noticia: string;
+  persona: Persona;
   
 }
