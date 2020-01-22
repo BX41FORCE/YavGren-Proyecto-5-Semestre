@@ -13,6 +13,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { CrearNoticiaComponent } from './crear-noticia/crear-noticia.component';
 import { CrearEventoComponent } from './crear-evento/crear-evento.component';
 import { TestComponent } from './test/test.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TestComponent } from './test/test.component';
     RegistroComponent,
     CrearNoticiaComponent,
     CrearEventoComponent,
-    TestComponent
+    TestComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
