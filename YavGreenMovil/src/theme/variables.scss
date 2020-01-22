@@ -2,6 +2,7 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -74,4 +75,34 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** YavGreen**/
+
+  --ion-color-yav1: #3F3F3F;
+  --ion-color-yav1-rgb: 63,63,63;
+  --ion-color-yav1-contrast: #B8CD33;
+  --ion-color-yav1-contrast-rgb: 184,205,51;
+  --ion-color-yav1-shade: #9aaa36;
+  --ion-color-yav1-tint: #b2c634;
+
+  --ion-color-yav2: #504B50;
+  --ion-color-yav2-rgb: 80,75,80;
+  --ion-color-yav2-contrast: #FFFFFF;
+  --ion-color-yav2-contrast-rgb: 255,255,255;
+  --ion-color-yav2-shade: #9ead3a;
+  --ion-color-yav2-tint: #b3c734;
+
+  --ion-color-yav3: #082050;
+  --ion-color-yav3-rgb: 80,75,80;
+  --ion-color-yav3-contrast: #FFFFFF;
+  --ion-color-yav3-contrast-rgb: 255,255,255;
+  --ion-color-yav3-shade: #9ead3a;
+  --ion-color-yav3-tint: #b3c734;
+
+  --ion-color-yav12 : #B8CD33;
+  --ion-color-yav22 : #3F3F3F;
+  --ion-color-yav32 : #504B50;
+  --ion-color-yav4 : #A099A0;
+  
+
 }
