@@ -8,15 +8,15 @@
                     value="" required>
                 <br />
                 <label for="fecha">Fecha del Evento</label>
-                <input type="date" class="form-control col" placeholder="Fecha del evento" value="" required>
+                <input type="date" class="form-control col" placeholder="Fecha del evento" value="" required [(ngModel)]="fechaEvento" >
                 <br />
                 <label for="lugar">Lugar del Evento</label>
-                <input type="text" class="form-control col" placeholder="Lugar del evento" value="" required>
+                <input type="text" class="form-control col" placeholder="Lugar del evento" value="" required [(ngModel)]="lugarEvento">
                 <br />
                 <label for="objetivo">Objetivo del Evento</label>
                 <p></p>
                 <textarea class="col" placeholder="Objetivo del evento" cols="40" rows="4"
-                    style="resize: both;"></textarea>
+                    style="resize: both;" [(ngModel)]="objetivoEvento"></textarea>
                 <br />
             </div>
             <div class="col">
