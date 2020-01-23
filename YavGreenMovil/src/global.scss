@@ -24,3 +24,40 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.ion-color-yav1 {
+  --ion-color-base: var(--ion-color-yav1);
+  --ion-color-base-rgb: var(--ion-color-yav1-rgb);
+  --ion-color-contrast: var(--ion-color-yav1-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-yav1-contrast-rgb);
+  --ion-color-shade: var(--ion-color-yav1-shade);
+  --ion-color-tint: var(--ion-color-yav1-tint);
+}
+
+.ion-color-yav2 {
+  --ion-color-base: var(--ion-color-yav2);
+  --ion-color-base-rgb: var(--ion-color-yav2-rgb);
+  --ion-color-contrast: var(--ion-color-yav2-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-yav2-contrast-rgb);
+  --ion-color-shade: var(--ion-color-yav2-shade);
+  --ion-color-tint: var(--ion-color-yav2-tint);
+}
+
+.ion-color-yav3 {
+  --ion-color-base: var(--ion-color-yav3);
+  --ion-color-base-rgb: var(--ion-color-yav3-rgb);
+  --ion-color-contrast: var(--ion-color-yav3-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-yav3-contrast-rgb);
+  --ion-color-shade: var(--ion-color-yav3-shade);
+  --ion-color-tint: var(--ion-color-yav3-tint);
+}
+
+.ion-color-yav4 {
+  --ion-color-base: var(--ion-color-yav4);
+  --ion-color-base-rgb: var(--ion-color-yav4-rgb);
+  --ion-color-contrast: var(--ion-color-yav4-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-yav4-contrast-rgb);
+  --ion-color-shade: var(--ion-color-yav4-shade);
+  --ion-color-tint: var(--ion-color-yav4-tint);
+}
