@@ -6,14 +6,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./crear-noticia.component.css"]
 })
 export class CrearNoticiaComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-
   public imagePath;
   imgURL: any;
   public message: string;
 
+  tituloNotica:string;
+  descripcionNoticia:string;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+//guardar imagen
   preview(files) {
     if (files.length === 0) return;
 
@@ -30,4 +34,10 @@ export class CrearNoticiaComponent implements OnInit {
       this.imgURL = reader.result;
     };
   }
+  // fin de guardar imagen
+   guardar(){
+
+   }
+   
+   
 }
