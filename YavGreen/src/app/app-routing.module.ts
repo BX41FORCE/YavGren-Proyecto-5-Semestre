@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'crear_noticia', component: CrearNoticiaComponent },
   { path: 'crear_evento', component: CrearEventoComponent },
   { path: 'test', component: TestComponent },
+  { path: '**', redirectTo: '/inicio', pathMatch: 'full' },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

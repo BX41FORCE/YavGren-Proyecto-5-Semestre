@@ -6,7 +6,8 @@
 .contaier-login {
     width: 90%;
     padding: 10px;
-    background: #FFFFFF;
+    color: #B8CD33;
+    background: #3F3F3F;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
@@ -15,14 +16,13 @@
 
 
 .row1 {
-    height: 50%;
-    background: -moz-linear-gradient(45deg, rgb(68, 182, 64) 0%, rgba(209, 165, 32, 0.8) 100%);
-    background: -webkit-linear-gradient(45deg, rgba(68, 128, 64, 1) 0%, rgba(209, 165, 32, 0.8)  100%);
-    background: linear-gradient(45deg, rgba(68, 128, 64, 1) 0%, rgba(209, 165, 32, 0.8)  100%);
+    height: 40%;
+    background-color: #3F3F3F;
 }
 
 .row2 {
-    height: 50%;
+    background-color: #3F3F3F;
+    height: 60%;
 }
 
 ion-icon {
