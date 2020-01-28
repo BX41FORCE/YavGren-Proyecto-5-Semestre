@@ -17,16 +17,6 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Login',
-      url: '/login',
-      icon: 'md-contact'
-    },
-    {
-      title: 'Registro',
-      url: '/registro',
-      icon: 'md-person-add'
-    },
-    {
       title: 'Perfil',
       url: '/persona',
       icon: 'person'
@@ -45,6 +35,16 @@ export class AppComponent {
       title: 'Evento',
       url: '/evento',
       icon: 'md-calendar'
+    }/*,
+    {
+      title: 'Login',
+      url: '/login',
+      icon: 'md-contact'
+    },
+    {
+      title: 'Registro',
+      url: '/registro',
+      icon: 'md-person-add'
     },
     {
       title: 'Canjeo',
@@ -55,7 +55,7 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
-    }
+    }*/
   ];
 
   constructor(
