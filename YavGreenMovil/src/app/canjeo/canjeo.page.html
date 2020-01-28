@@ -1,12 +1,22 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="yav1">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>canjeo</ion-title>
+    <ion-title>Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="yav1">
+
+  <ion-list style="background-color: #3F3F3F;">
+    <ion-item color="yav4" *ngFor="let item of items">
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      {{item.title}}
+      <div class="item-note" slot="end">
+        {{item.note}}
+      </div>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
