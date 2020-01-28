@@ -1,12 +1,22 @@
-#C{
-    background-color: #3F3F3F;
-    color: white;
-    height: 100%;
+#C {
+  background-color: #3f3f3f;
+  color: white;
+  height: 100%;
 }
 #c1 {
-    margin-left: 15px;
-    margin-right: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#c2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 #img {
-    margin-right: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border-radius: 30px;
 }

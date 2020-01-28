@@ -5,18 +5,18 @@
         <ion-toolbar color="yav1">
           <ion-title>Menu</ion-title>
         </ion-toolbar>
-      </ion-header >
-      <ion-content>
-        <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+      </ion-header>
+      <ion-content color="yav2">
+          <ion-list style="background-color: #504B50;">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+              <ion-item color="yav2" [routerDirection]="'root'" [routerLink]="[p.url]">
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <ion-label>
+                  {{p.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
