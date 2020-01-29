@@ -34,10 +34,6 @@ export class CrearNoticiaComponent implements OnInit {
       this.imgURL = reader.result;
     };
   }
-  // fin de guardar imagen
-   guardar(){
-
-   }
-   
+  
    
 }
