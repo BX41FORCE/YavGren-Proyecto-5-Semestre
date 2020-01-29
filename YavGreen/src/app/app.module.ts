@@ -15,6 +15,7 @@ import { CrearEventoComponent } from './crear-evento/crear-evento.component';
 import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
 import { ProductosComponent } from './productos/productos.component';
+import { ListaComponent } from './lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductosComponent } from './productos/productos.component';
     CrearEventoComponent,
     TestComponent,
     LoginComponent,
-    ProductosComponent
+    ProductosComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,

@@ -33,16 +33,7 @@ export class InicioComponent implements OnInit {
   {titulo:'Evento en Favor del Reciclaje 3', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
               
 ];
-pro={
-  titulo:null,
-  descripcion:null,
-}
 
-producto = [{titulo:'Producto 1', descripcion:'descripiòn del producto'},
-{titulo:'Producto 2', descripcion:'descripiòn del producto'},
-{titulo:'Producto 3', descripcion:'descripiòn del producto'},
-{titulo:'Producto 4', descripcion:'descripiòn del producto'},
-];
   
   constructor() { }
 
