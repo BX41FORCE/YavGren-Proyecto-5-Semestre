@@ -33,6 +33,8 @@ export class InicioComponent implements OnInit {
   {titulo:'Evento en Favor del Reciclaje 3', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
               
 ];
+
+  
   constructor() { }
 
   ngOnInit() {

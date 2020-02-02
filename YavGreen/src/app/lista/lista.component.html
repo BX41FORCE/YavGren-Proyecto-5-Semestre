@@ -1,0 +1,33 @@
+<h3 align="center">Productos</h3>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card" style="border-color: #B8CD33;">
+        <div class="card-body" style="background-color: #3F3F3F;">
+          <table class="table">
+            <thead>
+                <th scope="col-sm-2" style="color: white;">#</th>
+              <th scope="col-sm-2" style="color: white;">Productos</th>
+              <th scope="col-sm-6" style="color: white;">Descripción</th>
+              <th scope="col-sm-2" style="color: white;">Imagen</th>
+              <th scope="col-sm-2" style="color: white;">Opciones</th>
+            </thead>
+            <tbody *ngFor="let pro of producto">
+              <tr>
+                <td scope="col-sm-2" style="color: white;">{{pro.numero}}</td>
+                <td scope="col-sm-2" style="color: white;">{{pro.titulo}}</td>
+                <td scope="col-sm-6" style="color: white;">{{pro.descripcion}}</td>
+                <td scope="col-sm-2" style="color: white;">
+                <img src="{{pro.img}}" width="50" height="50" >
+                </td>
+                <td  scope="col-sm-2">
+                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" type="submit">Editar </button>
+                <button class="btn btn-outline-white btn-sm" disabled></button>
+                <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit">Eliminar</button>
+                </td>
+                 </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

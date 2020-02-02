@@ -6,6 +6,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { CrearNoticiaComponent } from './crear-noticia/crear-noticia.component';
 import { CrearEventoComponent } from './crear-evento/crear-evento.component'
 import { TestComponent } from './test/test.component'
+import { ProductosComponent } from './productos/productos.component';
+import { ListaComponent } from './lista/lista.component';
 
 
 const routes: Routes = [
@@ -15,8 +17,11 @@ const routes: Routes = [
   { path: 'crear_noticia', component: CrearNoticiaComponent },
   { path: 'crear_evento', component: CrearEventoComponent },
   { path: 'test', component: TestComponent },
+  { path: 'productos', component: ProductosComponent },
+  { path: 'lista', component: ListaComponent },
   { path: '', component: LoginComponent },
-  { path: '**', redirectTo: '/inicio', pathMatch: 'full' }
+  { path: '**', redirectTo: '/inicio', pathMatch: 'full' },
+ 
 ];
 
 @NgModule({
