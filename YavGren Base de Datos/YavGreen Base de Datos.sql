@@ -66,7 +66,7 @@ FOREIGN KEY (id_imagen_producto) REFERENCES Imagenes(id_imagen)
 
 CREATE TABLE Canjes(
 id_canje int auto_increment not null,
-fecha date not null,
+fecha_canjeo date not null,
 id_persona_canje int not null,
 id_producto_canje int not null,
 PRIMARY KEY (id_canje),
