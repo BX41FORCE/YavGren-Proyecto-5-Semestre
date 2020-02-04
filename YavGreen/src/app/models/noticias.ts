@@ -5,5 +5,5 @@ export class Noticias {
   nombre_noticia: string;
   descripcion_noticia: string;
   persona: Persona;
-  
+
 }
