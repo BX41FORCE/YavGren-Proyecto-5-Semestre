@@ -35,7 +35,7 @@ users.post('/register', (req, res) => {
             User.create(userData)
           .then(persona => {
             let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
-              expiresIn: 144000
+              expiresIn: 1440
             })
             res.json({ token: token })
           })
@@ -65,7 +65,7 @@ users.post('/login', (req, res) => {
     .then(persona => {
       if (persona) {
         let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
-          expiresIn: 144000
+          expiresIn: 1440
         })
         res.json({ token: token })
       } else {

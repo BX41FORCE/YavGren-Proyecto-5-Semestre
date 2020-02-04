@@ -8,19 +8,19 @@
                     <h1 class="h3 mb-3 font-weight-normal" style="color: #B8CD33;">Registro</h1>
                     <br />
                     <label for="inputNombre" class="sr-only">Nombre</label>
-                    <input id="inputNombre" class="form-control" placeholder="Nombre" required autofocus>
+                    <input id="inputNombre" class="form-control" [(ngModel)]="personas.nombre_persona" name="nombre_persona" placeholder="Nombre" required autofocus>
                     <br />
                     <label for="inputApellido" class="sr-only">Apellido</label>
-                    <input id="inputApellido" class="form-control" placeholder="Apellido" required autofocus>
+                    <input id="inputApellido" class="form-control" [(ngModel)]="personas.apellido_persona" name="apellido_persona" placeholder="Apellido" required autofocus>
                     <br />
                     <label for="inputCorreo" class="sr-only">Correo electronico</label>
-                    <input type="email" id="inputCorreo" class="form-control" placeholder="Correo electrónico" required
+                    <input type="email" id="inputCorreo" class="form-control" [(ngModel)]="personas.correo_persona" name="correo_persona" placeholder="Correo electrónico" required
                         autofocus>
                     <br />
                     <label for="inputContrasena" class="sr-only">Contraseña</label>
-                    <input type="password" id="inputContrasena" class="form-control" placeholder="Contraseña" required>
+                    <input type="password" id="inputContrasena" class="form-control" [(ngModel)]="personas.password_persona" name="password_persona" placeholder="Contraseña" required>
                     <br />
-                    <button class="btn btn-lg btn-outline-secondary btn-block" style="background-color: #B8CD33;"
+                    <button class="btn btn-lg btn-outline-secondary btn-block" (click)="guardarPersona()" routerLink="/inicio" style="background-color: #B8CD33;"
                         type="submit">Registrarse</button>
                     <p class="mt-5 mb-3 text-muted">Yavirac &copy;</p>
                 </form>
