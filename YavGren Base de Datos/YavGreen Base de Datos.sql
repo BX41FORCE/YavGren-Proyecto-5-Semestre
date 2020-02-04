@@ -37,8 +37,10 @@ objetivo_evento longtext not null,
 puntaje_evento int not null,
 codigo_evento varchar (50) not null,
 id_persona_evento int not null,
+id_imagen_evento int not null,
 PRIMARY KEY(id_evento),
-FOREIGN KEY (id_persona_evento) REFERENCES Personas(id_persona)
+FOREIGN KEY (id_persona_evento) REFERENCES Personas(id_persona),
+FOREIGN KEY (id_imagen_evento) REFERENCES Imagenes(id_imagen)
 );
 
 CREATE TABLE Noticias(
@@ -46,8 +48,10 @@ id_noticia int auto_increment not null,
 nombre_noticia varchar(100) not null,
 descripcion_noticia varchar(250),
 id_noticia_persona int not null,
+id_imagen_noticia int not null,
 PRIMARY KEY (id_noticia),
-FOREIGN KEY (id_noticia_persona) REFERENCES Personas(id_persona)
+FOREIGN KEY (id_noticia_persona) REFERENCES Personas(id_persona),
+FOREIGN KEY (id_imagen_noticia) REFERENCES Imagenes(id_imagen)
 );
 
 CREATE TABLE Productos(
@@ -55,14 +59,17 @@ id_producto int auto_increment not null,
 nombre_producto varchar (150) not null,
 descripcion_producto varchar (250)not null,
 costo_puntos_producto int not null,
-PRIMARY KEY (id_producto)
+id_imagen_producto int not null,
+PRIMARY KEY (id_producto),
+FOREIGN KEY (id_imagen_producto) REFERENCES Imagenes(id_imagen)
 );
 
-CREATE TABLE Canje(
+CREATE TABLE Canjes(
 id_canje int auto_increment not null,
+fecha date not null,
 id_persona_canje int not null,
 id_producto_canje int not null,
 PRIMARY KEY (id_canje),
 FOREIGN KEY (id_persona_canje) REFERENCES Personas(id_persona),
 FOREIGN KEY (id_producto_canje) REFERENCES Productos(id_producto)
-)
+);
