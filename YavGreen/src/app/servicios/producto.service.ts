@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Evento } from './../models/eventos';
+import { HttpClient } from '@angular/common/http';
+import { Producto } from '../models/producto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventosService {
-  url = environment.url + '/events';
+export class ProductoService {
+  url = environment.url + '/products';
   constructor(private http: HttpClient) { }
 
-  getEventoById(id) {
+  getProductoById(id) {
     return this.http.get(this.url + '/get/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
@@ -18,7 +18,7 @@ export class EventosService {
     });
   }
 
-  getAllEventos() {
+  getAllProductos() {
     return this.http.get(this.url + '/get').toPromise().then(r => {
       return r;
     }).catch(e => {
@@ -26,12 +26,11 @@ export class EventosService {
     });
   }
 
-  postEvento(evento) {
-    return this.http.post(this.url + '/post', evento).toPromise().then(r => {
+  postProductos(producto: Producto) {
+    return this.http.post(this.url + '/post', producto).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 }
-

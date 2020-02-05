@@ -8,11 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class NoticiasService {
 
-  url = environment.url + 'noticias/';
+  url = environment.url + '/news';
   constructor(private http: HttpClient) { }
 
   getNoticasById(id) {
-    return this.http.get(this.url + 'obtenerNoticias/' + id).toPromise().then(r => {
+    return this.http.get(this.url + '/get/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
@@ -20,7 +20,7 @@ export class NoticiasService {
   }
 
   getAllNoticias() {
-    return this.http.get(this.url + 'obtenerNoticias').toPromise().then(r => {
+    return this.http.get(this.url + 'get').toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
@@ -28,7 +28,7 @@ export class NoticiasService {
   }
 
   postNoticias(noticia: Noticias) {
-    return this.http.post(this.url + 'guardarNoticias', noticia).toPromise().then(r => {
+    return this.http.post(this.url + '/post', noticia).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;

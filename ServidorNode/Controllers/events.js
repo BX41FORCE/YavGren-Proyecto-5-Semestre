@@ -9,7 +9,7 @@ router.get('/get', function (req, res) {
 });
 
 router.post('/post',function(req,res){
-    db.insert(req.body).returning('*').into('eventos').then(function(data){
+    db.insert(req.body).into('eventos').then(function(data){
         res.send(data);
     });
   });
@@ -26,7 +26,7 @@ router.delete('/:id',function(req, res){
         //res.sendStatus(200).send(data);
     });
 });
-router.get('/:id',function(req, res){
+router.get('/get/:id',function(req, res){
     db('eventos').where({id_evento: req.params.id}).select().then(function(data){
         res.send(data);
        

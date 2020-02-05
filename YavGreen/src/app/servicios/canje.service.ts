@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Evento } from './../models/eventos';
+import { HttpClient } from '@angular/common/http';
+import { Canjeo } from '../models/canjeo';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventosService {
-  url = environment.url + '/events';
+export class CanjeService {
+
+  url = environment.url + 'news/';
   constructor(private http: HttpClient) { }
 
-  getEventoById(id) {
+  getNoticasById(id) {
     return this.http.get(this.url + '/get/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
@@ -18,20 +19,19 @@ export class EventosService {
     });
   }
 
-  getAllEventos() {
-    return this.http.get(this.url + '/get').toPromise().then(r => {
+  getAllNoticias() {
+    return this.http.get(this.url + 'get').toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  postEvento(evento) {
-    return this.http.post(this.url + '/post', evento).toPromise().then(r => {
+  postNoticias(noticia: Canjeo) {
+    return this.http.post(this.url + '/post', noticia).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 }
-

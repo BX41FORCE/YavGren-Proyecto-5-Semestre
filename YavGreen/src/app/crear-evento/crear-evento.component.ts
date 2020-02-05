@@ -1,5 +1,10 @@
+import { Persona } from './../models/persona';
 import { Component, OnInit } from "@angular/core";
 import { isFormattedError } from '@angular/compiler';
+import { EventosService } from '../servicios/eventos.service';
+import { AuthenticationService } from '../servicios/authentication.service';
+import { ToastrService } from 'ngx-toastr';
+import { Evento } from '../models/eventos';
 
 @Component({
   selector: "app-crear-evento",
@@ -15,6 +20,37 @@ export class CrearEventoComponent implements OnInit {
   display = false;
   href: string;
   codigo: string;
+  eventos:Evento;
+  personas: Persona;
+
+  constructor(private eventosService: EventosService,private authenticationService: AuthenticationService, private toastr: ToastrService) {
+    this.eventos = new Evento();
+    this.personas = new Persona();
+   }
+
+  ngOnInit() { }
+  guardarEvento(){
+    this.eventos.puntaje_evento = this.qrcodename;
+    this.eventos.codigo_evento = this.codigo;
+    this.eventos.nombre_evento = this.titulo;
+    this.eventos.id_persona_evento = 1 ;
+    
+    
+   
+   console.log(this.personas);
+    this.eventosService.postEvento(this.eventos).then(r => {
+      this.eventos = r;
+      this.toastr.success('Registrado con Exito!', 'Excelente');
+    }).catch(e => {
+      this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
+    });
+  
+  }
+
+
+
+
+
   evaluar() {
     if (this.qrcodename <= 100 && this.qrcodename >= 50) {
     } else {
@@ -100,9 +136,8 @@ export class CrearEventoComponent implements OnInit {
     alert(codigo);*/
   }
   downloadImage() {
-    this.href = document.getElementsByTagName("img")[0].src;
+    this.href = document.getElementsByTagName('img')[0].src;
   }
-  constructor() { }
-
-  ngOnInit() { }
+  
+ 
 }

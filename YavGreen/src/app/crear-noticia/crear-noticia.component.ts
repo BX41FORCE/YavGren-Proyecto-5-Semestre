@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { NoticiasService } from '../servicios/noticias.service';
+import { Noticias } from '../models/noticias';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-crear-noticia",
@@ -13,7 +16,11 @@ export class CrearNoticiaComponent implements OnInit {
   tituloNotica:string;
   descripcionNoticia:string;
 
-  constructor() {}
+  noticias:Noticias;
+  constructor(private noticiasService: NoticiasService, private toastr: ToastrService) {
+    this.noticias= new Noticias;
+   }
+
 
   ngOnInit() {}
 
@@ -34,6 +41,12 @@ export class CrearNoticiaComponent implements OnInit {
       this.imgURL = reader.result;
     };
   }
-  
-   
+  guardarNoticia(){
+    this.noticiasService.postNoticias(this.noticias).then(r => {
+      this.noticias = r;
+      this.toastr.success(' Exito!', 'Excelente');
+    }).catch(e => {
+      this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
+    });  
+}
 }
