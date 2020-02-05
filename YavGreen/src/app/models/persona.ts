@@ -6,4 +6,5 @@ export class Persona {
   password_persona: string;
   puntaje_persona: number;
   id_rol_persona: number;
+  exp: number;
 }

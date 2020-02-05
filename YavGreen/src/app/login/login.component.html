@@ -8,14 +8,16 @@
                     <br><br><br>
                     <h1 class="h3 mb-3 font-weight-normal" style="color: #B8CD33;">Login</h1>
                     <label for="inputCorreo" class="sr-only">Correo electronico</label>
-                    <input type="email" id="inputCorreo" class="form-control" placeholder="Correo electrónico" required
+                    <input type="email" id="inputCorreo" class="form-control" [(ngModel)]="personas.correo_persona" name="correo_persona" placeholder="Correo electrónico" required
                         autofocus>
                     <br />
                     <label for="inputContrasena" class="sr-only">Contraseña</label>
-                    <input type="password" id="inputContrasena" class="form-control" placeholder="Contraseña" required>
+                    <input type="password" id="inputContrasena" class="form-control" [(ngModel)]="personas.password_persona" name="password_persona" placeholder="Contraseña" required>
                     <br />
-                    <button class="btn btn-lg btn-outline-secondary btn-block" style="background-color: #B8CD33;"
+                    <button class="btn btn-lg btn-outline-secondary btn-block" (click)="LoguearPersona()" style="background-color: #B8CD33;"
                         type="submit">Iniciar Sesión</button>
+                        <br>
+                        <h6 style="color: skyblue;" (click)="registro()">No tienes cuenta?</h6>
                     <p class="mt-5 mb-3 text-muted">Yavirac &copy;</p>
                 </form>
             </div>

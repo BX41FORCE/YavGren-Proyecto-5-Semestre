@@ -19,6 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ListaComponent } from './lista/lista.component';
 
+import {AuthGuard} from './auth/auth.guard';
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,7 @@ import { ListaComponent } from './lista/lista.component';
     }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

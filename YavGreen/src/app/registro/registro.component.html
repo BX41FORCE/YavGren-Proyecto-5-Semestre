@@ -20,8 +20,10 @@
                     <label for="inputContrasena" class="sr-only">Contraseña</label>
                     <input type="password" id="inputContrasena" class="form-control" [(ngModel)]="personas.password_persona" name="password_persona" placeholder="Contraseña" required>
                     <br />
-                    <button class="btn btn-lg btn-outline-secondary btn-block" (click)="guardarPersona()" routerLink="/inicio" style="background-color: #B8CD33;"
+                    <button class="btn btn-lg btn-outline-secondary btn-block" (click)="guardarPersona()" style="background-color: #B8CD33;"
                         type="submit">Registrarse</button>
+                        <br>
+                        <h6 style="color: skyblue;" (click)="login()">Ya tienes cuenta?</h6>
                     <p class="mt-5 mb-3 text-muted">Yavirac &copy;</p>
                 </form>
             </div>

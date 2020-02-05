@@ -6,11 +6,11 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../models/People')
 users.use(cors())
-
+//Clave secreta de encriptacion 
 process.env.SECRET_KEY = 'dacbbd7b22a45fe62f6adc6b2a1ca3d1dab5c6a6007078f9944697b2aae35'
-
+//Funcion de registro 
 users.post('/register', (req, res) => {
- 
+
   const userData = {
     nombre_persona: req.body.nombre_persona,
     apellido_persona: req.body.apellido_persona,
@@ -19,7 +19,6 @@ users.post('/register', (req, res) => {
     puntaje_persona: req.body.puntaje_persona,
     id_rol_persona: req.body.id_rol_persona
   }
-
   User.findOne({
     where: {
       correo_persona: req.body.correo_persona
@@ -33,15 +32,15 @@ users.post('/register', (req, res) => {
             userData.password_persona = hash;
             console.log(userData)
             User.create(userData)
-          .then(persona => {
-            let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
-              expiresIn: 1440
-            })
-            res.json({ token: token })
-          })
-          .catch(err => {
-            res.send('error: ' + err)
-          })
+              .then(persona => {
+                let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
+                  expiresIn: 1440
+                })
+                res.json({ token: token })
+              })
+              .catch(err => {
+                res.send('error: ' + err)
+              })
           } else {
             return;
           }
@@ -54,35 +53,56 @@ users.post('/register', (req, res) => {
       res.send('error: ' + err)
     })
 })
-
+//Funcion de logearse 
 users.post('/login', (req, res) => {
   User.findOne({
     where: {
       correo_persona: req.body.correo_persona,
-      password_persona: req.body.password_persona
     }
   })
     .then(persona => {
       if (persona) {
-        let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
-          expiresIn: 1440
+        bcrypt.compare(req.body.password_persona, persona.password_persona, function (err, result) {
+          if (err) {
+            res.send("erro Log" + err);
+          }
+          if (result) {
+            let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
+              expiresIn: 1440
+            })
+            res.json({ token: token })
+          } else {
+            res.send('User does not exist or password incorrecta');
+          
+          }
         })
-        res.json({ token: token })
       } else {
-        res.send('User does not exist')
+        res.send('User does not exist or password incorrect');
       }
     })
     .catch(err => {
-      res.send('error: ' + err)
+      res.send('error ' + err)
     })
 })
+/*let token = jwt.sign(persona.dataValues, process.env.SECRET_KEY, {
+  expiresIn: 1440
+})
+res.json({ token: token })
+} else {
+res.send('User does not exist')
+}
+})
+.catch(err => {
+res.send('error: ' + err)
+})*/
 
+//Funcion de prefil 
 users.get('/profile', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
   User.findOne({
     where: {
-        id_persona: decoded.id_persona
+      id_persona: decoded.id_persona
     }
   })
     .then(persona => {
