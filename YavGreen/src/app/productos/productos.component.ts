@@ -1,4 +1,7 @@
+import { Producto } from './../models/producto';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ProductoService } from '../servicios/producto.service';
 
 @Component({
   selector: 'app-productos',
@@ -11,7 +14,10 @@ export class ProductosComponent implements OnInit {
   public message: string;
   valorProducto:number;
 
-  constructor() { }
+  productos:Producto;
+  constructor(private productosService: ProductoService, private toastr: ToastrService) {
+    this.productos= new Producto;
+   }
 
   ngOnInit() {
   }
@@ -43,6 +49,14 @@ export class ProductosComponent implements OnInit {
       this.imgURL = reader.result;
     };
   }
+  guardarProducto(){
+    this.productosService.postProductos(this.productos).then(r => {
+      this.productos = r;
+      this.toastr.success(' Exito!', 'Excelente');
+    }).catch(e => {
+      this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
+    });  
+}
   
 
 }

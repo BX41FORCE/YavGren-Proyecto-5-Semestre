@@ -27,10 +27,10 @@ export class InicioComponent implements OnInit {
     descripcion2:null
   }
 
-  texto =     [{titulo:'Evento en Favor del Reciclaje', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
-  {titulo:'Evento en Favor del Reciclaje 1', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
+  texto =     [{titulo:'Evento en Favor del Reciclaje 1', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
   {titulo:'Evento en Favor del Reciclaje 2', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
   {titulo:'Evento en Favor del Reciclaje 3', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
+  {titulo:'Evento en Favor del Reciclaje 4', descripcion:'Ven y participa del evento', descripcion2:'Te esperamos en el : YAVIRAC'},
               
 ];
 

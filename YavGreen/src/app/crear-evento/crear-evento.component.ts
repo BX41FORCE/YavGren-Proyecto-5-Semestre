@@ -1,5 +1,11 @@
+import { Persona } from './../models/persona';
 import { Component, OnInit } from "@angular/core";
+import Swal from 'sweetalert2';
 import { isFormattedError } from '@angular/compiler';
+import { EventosService } from '../servicios/eventos.service';
+import { AuthenticationService } from '../servicios/authentication.service';
+import { ToastrService } from 'ngx-toastr';
+import { Evento } from '../models/eventos';
 
 @Component({
   selector: "app-crear-evento",
@@ -15,6 +21,45 @@ export class CrearEventoComponent implements OnInit {
   display = false;
   href: string;
   codigo: string;
+  eventos:Evento;
+  personas: Persona;
+
+  constructor(private eventosService: EventosService,private authenticationService: AuthenticationService, private toastr: ToastrService) {
+    this.eventos = new Evento();
+    this.personas = new Persona();
+   }
+
+   ngOnInit() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'info',
+      title: 'Recuerda Generar y Descargar el Código QR',
+      showConfirmButton: false,
+      timer: 1800
+    })
+   }
+  guardarEvento(){
+    this.eventos.puntaje_evento = this.qrcodename;
+    this.eventos.codigo_evento = this.codigo;
+    this.eventos.nombre_evento = this.titulo;
+    this.eventos.id_persona_evento = 1 ;
+    
+    
+   
+   console.log(this.personas);
+    this.eventosService.postEvento(this.eventos).then(r => {
+      this.eventos = r;
+      this.toastr.success('Registrado con Exito!', 'Excelente');
+    }).catch(e => {
+      this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
+    });
+  
+  }
+
+
+
+
+
   evaluar() {
     if (this.qrcodename <= 100 && this.qrcodename >= 50) {
     } else {
@@ -58,8 +103,12 @@ export class CrearEventoComponent implements OnInit {
           abecedario[Math.round(Math.random() * (25 - 0) + 0)] +
           Math.round(Math.random() * (3 - 1) + 1);
       }
-      if (this.qrcodename == null || this.titulo == null) {
-        alert("Los campos deben estar llenos");
+      if (this.titulo == null) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Los campos deben estar llenos.'
+        })
         this.display = false;
         return;
       } else {
@@ -70,39 +119,29 @@ export class CrearEventoComponent implements OnInit {
       }
     } else {
       if (this.qrcodename == null || this.titulo == null) {
-        alert("Los campos deben estar llenos");
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Los campos deben estar llenos.'
+        })
         this.display = false;
+        return;
       }
-      alert("Solo puede ingresar un valor entre 50 y 100 puntos");
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Solo puede ingresar un valor entre 50 y 100 puntos.'
+      })
+      this.display = false;
       this.qrcodename = null;
+      this.codigo = null;
+      return;
     }
-    // No borrar este código es para la lectura del QR en el Movil//
-    /*
-    var nombre = "";
-    var puntaje = "";
-    var codigo = "";
-    var contador = 0;
-    for (var i = 0; i < this.value.length; i++) {
-      var caracter = this.value.charAt(i);
-      if (caracter == '\n') {
-        contador++
-      }
-      if (contador == 0 && caracter != '\n') {
-        nombre += caracter;
-      } else if (contador == 1 && caracter != '\n') {
-        puntaje += caracter
-      } else if (contador == 2 && caracter != '\n') {
-        codigo += caracter
-      }
-    }
-    alert(nombre);
-    alert(puntaje);
-    alert(codigo);*/
   }
   downloadImage() {
-    this.href = document.getElementsByTagName("img")[0].src;
+    this.href = document.getElementsByTagName('img')[0].src;
   }
-  constructor() { }
+  
 
-  ngOnInit() { }
+  
 }

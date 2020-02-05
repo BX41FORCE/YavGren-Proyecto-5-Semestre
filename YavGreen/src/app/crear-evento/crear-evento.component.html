@@ -8,21 +8,22 @@
                     value="" required>
                 <br />
                 <label for="fecha">Fecha del Evento</label>
-                <input type="date" class="form-control col" placeholder="Fecha del evento" value="" required [(ngModel)]="fechaEvento" >
+                <input type="date" id="inputDate" class="form-control col" [(ngModel)]="eventos.fecha_evento" name="fecha_evento" placeholder="Fecha del evento" required>
+                    
                 <br />
                 <label for="lugar">Lugar del Evento</label>
-                <input type="text" class="form-control col" placeholder="Lugar del evento" value="" required [(ngModel)]="lugarEvento">
+                <input type="text" class="form-control col" placeholder="Lugar del evento" value="" required [(ngModel)]="eventos.lugar_evento">
                 <br />
                 <label for="objetivo">Objetivo del Evento</label>
                 <p></p>
                 <textarea class="col" placeholder="Objetivo del evento" cols="40" rows="4"
-                    style="resize: both;" [(ngModel)]="objetivoEvento"></textarea>
+                    style="resize: both;" [(ngModel)]="eventos.objetivo_evento"></textarea>
                 <br />
             </div>
             <div class="col">
                 <label for="puntaje">Puntaje total del objetivo</label>
                 <input type="number" min="50" max="100" class="form-control col"
-                    placeholder="Puntaje total del objetivo" [(ngModel)]="qrcodename" value="" required>
+                    placeholder="Ingrese un valor entre 50 y 100 puntos" [(ngModel)]="qrcodename" value="" required>
                 <br />
                 <label for="puntaje">Código del Evento</label>
                 <input class="form-control col" placeholder="Código del Evento" [(ngModel)]="codigo" disabled>
@@ -40,10 +41,10 @@
             <p></p>
             <div class="col ">
                 <button class="btn btn-lg btn-outline-secondary btn-sm " style="background-color: #B8CD33; "
-                    type="submit " (click)="evaluar()">Crear Noticia</button>
+                    type="submit " (click)="guardarEvento()">Crear Noticia</button>
                 <button class="btn btn-outline-white btn-sm " disabled></button>
                 <button class="btn btn-lg btn-outline-dark btn-sm " style="background-color: #F54A4B; "
-                    type="submit ">Cancelar</button>
+                    type="reset ">Cancelar</button>
             </div>
         </div>
         <br />

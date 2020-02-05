@@ -9,7 +9,7 @@ router.get('/get', function (req, res) {
 });
 
 router.post('/post',function(req,res){
-    db.insert(req.body).returning('*').into('productos').then(function(data){
+    db.insert(req.body).into('productos').then(function(data){
         res.send(data);
     });
   });

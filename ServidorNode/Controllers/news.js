@@ -14,7 +14,7 @@ router.post('/post', function (req, res) {
     });
 });
 
-router.put('/:id', function (req, res) {
+router.put('/put/:id', function (req, res) {
     db('noticias').where({ id_noticia: req.params.id }).update(req.body).then(function (data) {
         res.sendStatus(200).send(data);
     });
@@ -26,7 +26,7 @@ router.delete('/:id',function(req, res){
         //res.sendStatus(200).send(data);
     });
 });
-router.get('/:id',function(req, res){
+router.get('/get/:id',function(req, res){
     db('noticias').where({id_noticia: req.params.id}).select().then(function(data){
         res.send(data);
        

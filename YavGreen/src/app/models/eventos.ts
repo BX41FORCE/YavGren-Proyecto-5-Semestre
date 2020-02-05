@@ -8,5 +8,5 @@ export class Evento {
   objetivo_evento: string;
   puntaje_evento: number;
   codigo_evento: string;
-  persona: Persona;
+  id_persona_evento: number;
 }
