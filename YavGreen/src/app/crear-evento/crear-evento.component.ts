@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import Swal from 'sweetalert2';
 import { isFormattedError } from '@angular/compiler';
 
 @Component({
@@ -58,8 +59,12 @@ export class CrearEventoComponent implements OnInit {
           abecedario[Math.round(Math.random() * (25 - 0) + 0)] +
           Math.round(Math.random() * (3 - 1) + 1);
       }
-      if (this.qrcodename == null || this.titulo == null) {
-        alert("Los campos deben estar llenos");
+      if (this.titulo == null) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Los campos deben estar llenos.'
+        })
         this.display = false;
         return;
       } else {
@@ -70,39 +75,37 @@ export class CrearEventoComponent implements OnInit {
       }
     } else {
       if (this.qrcodename == null || this.titulo == null) {
-        alert("Los campos deben estar llenos");
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Los campos deben estar llenos.'
+        })
         this.display = false;
+        return;
       }
-      alert("Solo puede ingresar un valor entre 50 y 100 puntos");
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Solo puede ingresar un valor entre 50 y 100 puntos.'
+      })
+      this.display = false;
       this.qrcodename = null;
+      this.codigo = null;
+      return;
     }
-    // No borrar este código es para la lectura del QR en el Movil//
-    /*
-    var nombre = "";
-    var puntaje = "";
-    var codigo = "";
-    var contador = 0;
-    for (var i = 0; i < this.value.length; i++) {
-      var caracter = this.value.charAt(i);
-      if (caracter == '\n') {
-        contador++
-      }
-      if (contador == 0 && caracter != '\n') {
-        nombre += caracter;
-      } else if (contador == 1 && caracter != '\n') {
-        puntaje += caracter
-      } else if (contador == 2 && caracter != '\n') {
-        codigo += caracter
-      }
-    }
-    alert(nombre);
-    alert(puntaje);
-    alert(codigo);*/
   }
   downloadImage() {
     this.href = document.getElementsByTagName("img")[0].src;
   }
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'info',
+      title: 'Recuerda Generar y Descargar el Código QR',
+      showConfirmButton: false,
+      timer: 1800
+    })
+   }
 }
