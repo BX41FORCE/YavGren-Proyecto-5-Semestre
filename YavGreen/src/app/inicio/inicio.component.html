@@ -2,7 +2,8 @@
   <div class="jumbotron p-4 p-md-5 text-white rounded" style="background-color: #3F3F3F;">
     <div class="row flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic" style="color:#B8CD33;">Bienvenido a <img id="logo" src="../../assets/img/YavGreen.png"/></h1>
+        <h1 class="display-4 font-italic" style="color:#B8CD33;">Bienvenido a <img id="logo"
+            src="../../assets/img/YavGreen.png" /></h1>
         <p class="lead my-3">Aquí podras encontrar información y noticias ecológicas
           <br /> ¡No te olvides de revisar los eventos que tenemos par tí!</p>
 
@@ -43,8 +44,8 @@
         <div class="card-body">
           <h5 class="card-title" style="color: #B8CD33;">{{not.titulo}}</h5>
           <p class="card-text" style="color: white">{{not.descripcion}}</p>
-          <button class="btn btn-sm btn-success" type="submit"
-            data-toggle="modal" data-target="#noticiaModal"><i class="far fa-comment-dots"></i> Ver
+          <button class="btn btn-sm btn-success" type="submit" data-toggle="modal" data-target="#noticiaModal"><i
+              class="far fa-comment-dots"></i> Ver
             Noticia</button>
           <!-- Modal -->
         </div>
@@ -60,18 +61,18 @@
           <h5 class="card-title" style="color: #B8CD33;">{{tex.titulo}}</h5>
           <p class="card-text text-justify" style="color: white;">{{tex.descripcion}}<br /> Este: 19/01/2020
             <br /> {{tex.descripcion2}}</p>
-          <button class="btn btn-sm btn-primary" type="submit"
-            data-toggle="modal" data-target="#eventoModal"><i class="fas fa-calendar-day"></i> Ver Evento
+          <button class="btn btn-sm btn-primary" type="submit" data-toggle="modal" data-target="#eventoModal"><i
+              class="fas fa-calendar-day"></i> Ver Evento
           </button>
         </div>
       </div>
       <br />
     </div>
   </div>
-  
+
 </div>
-<div class="modal fade" id="noticiaModal" tabindex="-1"
-  role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="noticiaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -83,6 +84,14 @@
       </div>
       <div class="modal-body text-justify">
         <img id="modalImg" src="../../assets/img/Reciclaje.jpg" hspace="5" vspace="5" style="float: right;" />
+        Existen formas sencillas y a la vez creativas e innovadoras de cuidar el planeta; acciones que cualquiera de
+        nosotros puede ejecutar en casa de manera que aportemos un grano de arena en la conservación del lugar donde
+        vivimos. Hablamos del reciclaje, pero no del conocido proceso de reutilizar el papel, sino de otros materiales
+        que quizá ya pensabas desechar.
+
+        Botellas de plástico, puertas viejas, tarjetas de crédito, utensilios de cocina y otras cosas más que estén en
+        desuso bien pueden ser transformadas en artículos para decorar el hogar o la oficina. Es una manera bastante
+        viable de darles una segunda vida a esos objetos y evitar contaminar aún más el planeta.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
@@ -90,19 +99,28 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="eventoModal" tabindex="-1"
-  role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;">
-          Nueva forma de reciclaje inteligente</h5>
+          Evento de Plantación de Arboles</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body text-justify">
-        <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" hspace="5" vspace="5" style="float: right;" />
+       <!-- <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" hspace="5" vspace="5"
+          style="float: right;" />-->
+        <p>Lugar del evento: </p>
+        <p>Fecha del evento: </p>
+        <p>Objetivo:<br /> Se llevará a cabo la plantación de 30 árboles a los alrededores del Instituto. <br /> Traer
+          10 fundas de Basura</p>
+        <br />
+        <div class="alert alert-primary" role="alert">
+          Este evento te recompensará con 100 puntos
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>

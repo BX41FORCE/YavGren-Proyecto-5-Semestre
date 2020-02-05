@@ -27,7 +27,7 @@ export class AppComponent {
       icon: 'qr-scanner'
     },
     {
-      title: 'Canjeo de Puntos',
+      title: 'Lista de Productos',
       url: '/canjeo',
       icon: 'md-card'
     }, {
