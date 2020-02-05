@@ -5,17 +5,21 @@
             <div class="row">
                 <div class="col">
                     <label for="titulo">Nombre del Producto</label>
-                    <input type="text" class="form-control col" placeholder="Nombre" value="" required [(ngModel)]="productos.nombre_producto">
+                    <input type="text" class="form-control col" placeholder="Nombre del Producto" value="" required [(ngModel)]="producto">
                     <br />
                     <label for="descripcion">Descripción del producto</label>
                     <p></p>
-                    <textarea class="col" placeholder="Cuerpo de la Noticia" cols="40" rows="8" style="resize: both;" [(ngModel)]="producto.descripcion_producto"></textarea>
+                    <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;" [(ngModel)]="descripcionNoticia"></textarea>
                     <p></p>
                 </div>
                 <div class="col">
-                    <label for="puntaje">Costo del Producto</label>
+                    <label for="puntaje">Puntaje del Producto</label>
                 <input type="number" min="50" max="100" class="form-control col"
+<<<<<<< HEAD
                     placeholder="Puntaje total del Porducto" name="valorProducto" [(ngModel)]="producto.puntaje_producto">
+=======
+                    placeholder="Puntaje del Porducto" name="valorProducto" [(ngModel)]="valorProducto">
+>>>>>>> 6096609847c0077e8f5e3c28c700dae30a6157e2
                 <br />  
                     <label for="imagen">Seleccionar Imagen</label>
                     <input #file type="file" accept='image/*' (change)="preview(file.files)" />

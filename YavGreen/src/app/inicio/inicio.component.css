@@ -10,6 +10,12 @@ img {
     border-radius: 6px;
 }
 
+#logo {
+    width: auto;
+    height: 90px;
+    border-radius: 6px;
+}
+
 #eventoImg {
     width: 200px;
     height: 130px;

@@ -15,9 +15,9 @@ export class ListaComponent implements OnInit {
     costo:null,
   }
   
-  producto = [{numero:'1',titulo:'Producto 1', descripcion:'Descripiòn del producto',img:'assets/img/producto1.jpg', costo:100 },
-  {numero:'2',titulo:'Producto 2', descripcion:'Descripiòn del producto', img:'assets/img/producto2.jpg' ,costo:100},
-  {numero:'3',titulo:'Producto 3', descripcion:'Descripiòn del producto' ,img:'assets/img/producto3.jpg',costo:100 },
+  producto = [{numero:'1',titulo:'Producto 1', descripcion:'Descripción del producto',img:'assets/img/producto1.jpg'},
+  {numero:'2',titulo:'Producto 2', descripcion:'Descripción del producto', img:'assets/img/producto2.jpg'},
+  {numero:'3',titulo:'Producto 3', descripcion:'Descripción del producto' ,img:'assets/img/producto3.jpg'},
   ];
   constructor() { }
 

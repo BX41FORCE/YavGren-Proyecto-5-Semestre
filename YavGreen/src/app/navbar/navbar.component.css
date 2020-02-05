@@ -8,13 +8,7 @@ a {
   color: white;
 }
 
-#yavLogo :hover {
-  background-color: #20534F;
-  color: #3f3f3f;
-  border-radius: 6px;
-}
-
-#yav :hover {
+a:hover {
   background-color: #b8cd33;
   color: #20534F;
   border-radius: 6px;
