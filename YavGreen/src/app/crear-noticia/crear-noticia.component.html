@@ -1,7 +1,6 @@
 <div class="col-12 order-md-1">
     <div class="jumbotron" style="color: #B8CD33;background-color: #3F3F3F;">
         <h1 class="mb-3">Creación de noticia</h1>
-        <form class="form-signin">
             <div class="row">
                 <div class="col">
                     <label for="titulo">Título</label>
@@ -19,10 +18,9 @@
                     <img id="ImgNoticia" [src]="imgURL" *ngIf="imgURL">
                 </div>
             </div>
-        </form>
         <div class="row col-6">
             <div class="col">
-                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" type="submit">Crear Noticia</button>
+                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" type="submit" (click)="guardarNoticia()">Crear Noticia</button>
                 <button class="btn btn-outline-white btn-sm" disabled></button>
                 <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit">Cancelar</button>
             </div>

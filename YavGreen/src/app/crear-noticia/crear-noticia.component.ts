@@ -17,6 +17,8 @@ export class CrearNoticiaComponent implements OnInit {
   descripcionNoticia:string;
 
   noticias:Noticias;
+
+
   constructor(private noticiasService: NoticiasService, private toastr: ToastrService) {
     this.noticias= new Noticias;
    }
@@ -42,9 +44,13 @@ export class CrearNoticiaComponent implements OnInit {
     };
   }
   guardarNoticia(){
+    this.noticias.id_noticia_persona = 1 ;
+    this.noticias.id_imagen_noticia=1; 
+    console.log(this.noticias);
     this.noticiasService.postNoticias(this.noticias).then(r => {
       this.noticias = r;
       this.toastr.success(' Exito!', 'Excelente');
+      this.noticias = new Noticias;
     }).catch(e => {
       this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
     });  
