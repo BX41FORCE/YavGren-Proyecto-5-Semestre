@@ -9,4 +9,6 @@ export class Evento {
   puntaje_evento: number;
   codigo_evento: string;
   id_persona_evento: number;
+  id_imagen_evento: number;
+
 }

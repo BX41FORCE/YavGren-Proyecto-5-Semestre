@@ -9,8 +9,8 @@ router.get('/get', function (req, res) {
 });
 
 router.post('/post', function (req, res) {
-    db.insert(req.body).returning('*').into('noticias').then(function (data) {
-        res.send(data);
+    db.insert(req.body).into('noticias').then(function (data) {
+        res.sendStatus(200).send(data);
     });
 });
 

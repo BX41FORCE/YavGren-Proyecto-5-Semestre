@@ -43,10 +43,8 @@ export class CrearEventoComponent implements OnInit {
     this.eventos.codigo_evento = this.codigo;
     this.eventos.nombre_evento = this.titulo;
     this.eventos.id_persona_evento = 1 ;
-    
-    
-   
-   console.log(this.personas);
+    this.eventos.id_imagen_evento = 1 ;
+   console.log(this.eventos);
     this.eventosService.postEvento(this.eventos).then(r => {
       this.eventos = r;
       this.toastr.success('Registrado con Exito!', 'Excelente');
@@ -55,11 +53,6 @@ export class CrearEventoComponent implements OnInit {
     });
   
   }
-
-
-
-
-
   evaluar() {
     if (this.qrcodename <= 100 && this.qrcodename >= 50) {
     } else {

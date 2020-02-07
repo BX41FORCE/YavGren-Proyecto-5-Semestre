@@ -1,17 +1,15 @@
-import { Noticias } from './../models/noticias';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoticiasService {
-
-  url = environment.url + '/news';
+export class ImagesService {
+  url = environment.url + '/picture';
   constructor(private http: HttpClient) { }
 
-  getNoticasById(id) {
+  getImagesById(id) {
     return this.http.get(this.url + '/get/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
@@ -19,16 +17,16 @@ export class NoticiasService {
     });
   }
 
-  getAllNoticias() {
-    return this.http.get(this.url + 'get').toPromise().then(r => {
+  getAllImages() {
+    return this.http.get(this.url + '/get').toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  postNoticias(noticias) {
-    return this.http.post(this.url + '/post', noticias).toPromise().then(r => {
+  postImages(images) {
+    return this.http.post(this.url + '/post', images).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;

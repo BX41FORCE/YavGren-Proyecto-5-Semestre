@@ -20,6 +20,7 @@ export class ProductosComponent implements OnInit {
    }
 
   ngOnInit() {
+    
   }
 
 
@@ -50,6 +51,10 @@ export class ProductosComponent implements OnInit {
     };
   }
   guardarProducto(){
+   
+    this.productos.costo_puntos_producto=this.valorProducto;
+    this.productos.id_imagen_producto = 1;
+    this.evaluar();
     this.productosService.postProductos(this.productos).then(r => {
       this.productos = r;
       this.toastr.success(' Exito!', 'Excelente');
