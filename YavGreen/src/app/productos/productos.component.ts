@@ -51,7 +51,6 @@ export class ProductosComponent implements OnInit {
     };
   }
   guardarProducto(){
-   
     this.productos.costo_puntos_producto=this.valorProducto;
     this.productos.id_imagen_producto = 1;
     this.evaluar();

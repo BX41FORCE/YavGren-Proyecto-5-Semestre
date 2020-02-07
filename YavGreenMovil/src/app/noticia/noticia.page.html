@@ -8,15 +8,14 @@
 </ion-header>
 
 <ion-content color="yav1" routerLink="/noticia-detalle">
-  <ion-card color="yav2">
-
+  <ion-card color="yav2" *ngFor="let item of noticias">
     <ion-item color="yav2">
-      <h2>Nuevas formas de Reciclar</h2>
+      <h2>{{item.nombre_noticia}}</h2>
       <br>
     </ion-item>
     <img src="assets/img/Reciclaje1.png">
     <ion-card-content>
-      <p>Existen nuevas formas de reciclar....</p>
+      <p>{{item.descripcion_noticia}}</p>
     </ion-card-content>
   </ion-card>
 

@@ -1,3 +1,5 @@
+import { Noticias } from '../models/noticias'
+import { NoticiasService} from '../servicios/noticias.service'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./noticia.page.scss'],
 })
 export class NoticiaPage implements OnInit {
+  noticia:Noticias;
+  noticias: any = [];
 
-  constructor() { }
-
+  constructor(private noticiasServices:NoticiasService) {
+    this.noticia = new Noticias();
+   }
+   obtenerNoticias() {
+    console.log(this.noticias);
+    this.noticiasServices.getAllNoticias().then(respuesta => {
+      this.noticias = respuesta;
+    }).catch(error => {
+      //this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
+      alert('Error al obtener las noticias')
+    });
+  }
   ngOnInit() {
+    this.obtenerNoticias();
   }
 
 }
