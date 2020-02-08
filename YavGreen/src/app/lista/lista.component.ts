@@ -1,4 +1,7 @@
+import { ProductoService } from './../servicios/producto.service';
+import { Producto } from './../models/producto';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lista',
@@ -7,23 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaComponent implements OnInit {
 
-  pro={
-    numero:null,
-    titulo:null,
-    descripcion:null,
-    img : null ,
-    costo:null,
-  }
-  
-  producto = [{numero:'1',titulo:'Producto 1', descripcion:'Descripción del producto',img:'assets/img/producto1.jpg'},
-  {numero:'2',titulo:'Producto 2', descripcion:'Descripción del producto', img:'assets/img/producto2.jpg'},
-  {numero:'3',titulo:'Producto 3', descripcion:'Descripción del producto' ,img:'assets/img/producto3.jpg'},
-  ];
-  constructor() { }
+  producto:Producto;
+  productos: any = [];
+
+
+  constructor(private productoServices:ProductoService,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.obtenerProductos();
   }
-
+  obtenerProductos() {
+    console.log(this.productos);
+    this.productoServices.getAllProductos().then(respuesta => {
+      this.productos = respuesta;
+      this.toastr.success('Cargado con Exito!', 'Excelente');
+    }).catch(error => {
+      this.toastr.error('Aun no hay productos disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
+  
   
 
 }

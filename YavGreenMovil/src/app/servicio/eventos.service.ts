@@ -1,17 +1,16 @@
-import { Noticias } from './../models/noticias';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Evento } from '../models/eventos';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoticiasService {
-
-  url = environment.url + '/news';
+export class EventosService {
+  url = environment.url + '/events';
   constructor(private http: HttpClient) { }
 
-  getNoticasById(id) {
+  getEventoById(id) {
     return this.http.get(this.url + '/get/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
@@ -19,7 +18,7 @@ export class NoticiasService {
     });
   }
 
-  getAllNoticias() {
+  getAllEventos() {
     return this.http.get(this.url + '/get').toPromise().then(r => {
       return r;
     }).catch(e => {
@@ -27,28 +26,28 @@ export class NoticiasService {
     });
   }
 
-  postNoticias(noticias) {
-    return this.http.post(this.url + '/post', noticias).toPromise().then(r => {
+  postEventos(evento) {
+    return this.http.post(this.url + '/post', evento).toPromise().then(r => {
+      return r;
+    }).catch(e => {
+      return e.body;
+    });
+  }
+  putEvento(evento:Evento){
+    return this.http.put(this.url + '/:id/'  + evento.id_evento, evento).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  putNoticias(noticias:Noticias){
-    return this.http.put(this.url + '/:id/'  + noticias.id_noticias, noticias).toPromise().then(r => {
+  deleteEvento(evento:Evento){
+    return this.http.delete(this.url + '/:id/'  + evento.id_evento).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  deleteEvento(noticias:Noticias){
-    return this.http.delete(this.url + '/:id/'  + noticias.id_noticias).toPromise().then(r => {
-      return r;
-    }).catch(e => {
-      return e.body;
-    });
-  }
-
+  
 }

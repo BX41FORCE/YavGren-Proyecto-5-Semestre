@@ -33,4 +33,20 @@ export class ProductoService {
       return e.body;
     });
   }
+
+  putProducto(producto:Producto){
+    return this.http.put(this.url + '/:id/'  + producto.id_producto, producto).toPromise().then(r => {
+      return r;
+    }).catch(e => {
+      return e.body;
+    });
+  }
+
+  deleteProducto(producto:Producto){
+    return this.http.delete(this.url + '/:id/'  + producto.id_producto).toPromise().then(r => {
+      return r;
+    }).catch(e => {
+      return e.body;
+    });
+  }
 }
