@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoService } from './../servicio/producto.service';
+import { Producto } from './../models/producto';
 
 @Component({
   selector: 'app-canjeo',
@@ -6,30 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canjeo.page.scss'],
 })
 export class CanjeoPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Producto ' + i,
-        note: 'Puntos ' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+
+  producto:Producto;
+  productos: any = [];
+
+  constructor(private productoServices:ProductoService) {
   }
+
+  obtenerProductos() {
+    console.log(this.productos);
+    this.productoServices.getAllProductos().then(respuesta => {
+      this.productos = respuesta;
+     // this.toastr.success('Cargado con Exito!', 'Excelente');
+    }).catch(error => {
+      alert('Aun no hay productos disponibles!');
+      //this.toastr.error('Aun no hay productos disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
+
   ngOnInit() {
+    this.obtenerProductos();
   }
 
 }

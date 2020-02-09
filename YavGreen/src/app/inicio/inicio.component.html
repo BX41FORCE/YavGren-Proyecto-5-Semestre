@@ -59,8 +59,8 @@
         <div class="card-body" style="background-color: #082050;">
           <img id="eventoImg" src="../../assets/img/gestionambiental_principal.jpg" style="float: right;" />
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_evento}}</h5>
-          <p class="card-text text-justify" style="color: white;">{{item.objetivo_evento}}<br /> Este: 19/01/2020
-            <br /> {{item.lugar_evento}}</p>
+          <p class="card-text text-justify" style="color: white;">Objetivo: {{item.objetivo_evento}}<br /> Este: {{item.fecha_evento}}
+            <br />Lugar: {{item.lugar_evento}}</p>
           <button class="btn btn-sm btn-primary" type="submit" data-toggle="modal" data-target="#eventoModal"><i
               class="fas fa-calendar-day"></i> Ver Evento
           </button>

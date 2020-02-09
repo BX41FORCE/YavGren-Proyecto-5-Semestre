@@ -1,5 +1,5 @@
 import { Noticias } from '../models/noticias'
-import { NoticiasService} from '../servicios/noticias.service'
+import { NoticiasService} from '../servicio/noticias.service'
 import { Component, OnInit } from '@angular/core';
 
 @Component({

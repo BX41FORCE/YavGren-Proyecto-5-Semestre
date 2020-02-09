@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule), canActivate: [AuthGuard]
   },
   {
     path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -21,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'logout',
-    loadChildren: () => import('./logout/logout.module').then(m => m.LogoutPageModule)
+    loadChildren: () => import('./logout/logout.module').then(m => m.LogoutPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'registro',
@@ -29,35 +24,39 @@ const routes: Routes = [
   },
   {
     path: 'lector-qr',
-    loadChildren: () => import('./lector-qr/lector-qr.module').then(m => m.LectorQrPageModule)
+    loadChildren: () => import('./lector-qr/lector-qr.module').then(m => m.LectorQrPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'canjeo',
-    loadChildren: () => import('./canjeo/canjeo.module').then(m => m.CanjeoPageModule)
+    loadChildren: () => import('./canjeo/canjeo.module').then(m => m.CanjeoPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'persona',
-    loadChildren: () => import('./persona/persona.module').then(m => m.PersonaPageModule)
+    loadChildren: () => import('./persona/persona.module').then(m => m.PersonaPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'evento',
-    loadChildren: () => import('./evento/evento.module').then(m => m.EventoPageModule)
+    loadChildren: () => import('./evento/evento.module').then(m => m.EventoPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'noticia',
-    loadChildren: () => import('./noticia/noticia.module').then(m => m.NoticiaPageModule)
+    loadChildren: () => import('./noticia/noticia.module').then(m => m.NoticiaPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'evento-detalle',
-    loadChildren: () => import('./evento-detalle/evento-detalle.module').then(m => m.EventoDetallePageModule)
+    loadChildren: () => import('./evento-detalle/evento-detalle.module').then(m => m.EventoDetallePageModule), canActivate: [AuthGuard]
   },
   {
     path: 'noticia-detalle',
-    loadChildren: () => import('./noticia-detalle/noticia-detalle.module').then(m => m.NoticiaDetallePageModule)
+    loadChildren: () => import('./noticia-detalle/noticia-detalle.module').then(m => m.NoticiaDetallePageModule), canActivate: [AuthGuard]
   },
   {
     path: '**',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   }
 
 

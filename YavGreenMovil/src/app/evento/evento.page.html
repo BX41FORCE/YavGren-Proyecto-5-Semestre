@@ -8,18 +8,18 @@
 </ion-header>
 
 <ion-content color="yav1" routerLink="/evento-detalle">
-  <ion-card color="yav3">
+  <ion-card color="yav3" *ngFor="let item of eventos">
 
     <ion-item color="yav3">
-      <h4>Plantación de árboles</h4>
+      <h4>{{item.nombre_evento}}</h4>
       <br>
     </ion-item>
 
     <img src="assets/img/ecologia-social.jpg">
 
     <ion-card-content>
-      <p class="card-text text-justify" style="color: white;">Ven y participa del evento<br /> Este: 19/01/2020
-        <br />Te esperamos en el : YAVIRAC</p>
+      <p class="card-text text-justify" style="color: white;">Objetivo: {{item.objetivo_evento}}<br /> Este: {{item.fecha_evento}}
+        <br />Lugar: {{item.lugar_evento}}</p>
     </ion-card-content>
 
     <ion-button color="yav1">

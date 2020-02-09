@@ -32,12 +32,12 @@
 
               <ion-item color="yav2">
                 <ion-icon name="person" class="icon-login"></ion-icon>
-                <ion-input name="user" type="text" required placeholder="Usuario"></ion-input>
+                <ion-input name="user" type="text" required placeholder="Usuario" [(ngModel)]="personas.correo_persona" name="correo_persona"></ion-input>
               </ion-item>
               <br />
               <ion-item color="yav2">
                 <ion-icon name="lock" class="icon-login"></ion-icon>
-                <ion-input name="password" type="password" required placeholder="Contraseña"></ion-input>
+                <ion-input name="password" type="password" required placeholder="Contraseña" [(ngModel)]="personas.password_persona" name="password_persona"></ion-input>
               </ion-item>
 
             </ion-list>
@@ -45,16 +45,16 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button type="submit" fill="solid" expand="full" routerLink="/inicio">
-              Entrar
+            <ion-button type="submit" fill="solid" expand="full" (click)="LoguearPersona()">
+              Iniciar Sesión
             </ion-button>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-label>
+            <!--<ion-label>
               <h3>¿Olvido la contraseña?</h3>
-            </ion-label>
+            </ion-label>-->
             <ion-label>
               <a  tappable color="primary" routerLink="/registro" >Crear cuenta</a>
             </ion-label>

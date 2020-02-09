@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       this.authenticationService.setToken(r['token']);
       this.personas = r;
       this.toastr.success('Ingresado con Exito!', 'Excelente');
-      this.router.navigateByUrl('/inicio');
+      this.router.navigateByUrl('/home');
     }).catch(e => {
       this.toastr.error('Ha ocurrido un error al Loguearse!', 'Usuario o Contraseña Incorrecto');
     });

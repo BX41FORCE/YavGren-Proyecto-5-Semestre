@@ -35,31 +35,36 @@
 
               <ion-item color="yav2">
                 <ion-icon name="person" class="icon-login"></ion-icon>
-                <ion-input name="user" type="text" required placeholder="Usuario"></ion-input>
+                <ion-input name="user" type="text" required placeholder="Nombre" [(ngModel)]="personas.nombre_persona" name="nombre_persona"></ion-input>
+              </ion-item>
+              <br/>
+              <ion-item color="yav2">
+                <ion-icon name="person" class="icon-login"></ion-icon>
+                <ion-input name="user" type="text" required placeholder="Apellido" [(ngModel)]="personas.apellido_persona" name="apellido_persona"></ion-input>
               </ion-item>
               <br/>
               <ion-item color="yav2">
                 <ion-icon name="mail" class="icon-login"></ion-icon>
-                <ion-input name="user" type="text" required placeholder="Correo Electronico"></ion-input>
+                <ion-input name="user" type="text" required placeholder="Correo Electronico" [(ngModel)]="personas.correo_persona" name="correo_persona"></ion-input>
               </ion-item>
               <br/>
               
               <ion-item color="yav2">
                 <ion-icon name="lock" class="icon-login"></ion-icon>
-                <ion-input name="password" type="password" required placeholder="Contraseña"></ion-input>
+                <ion-input name="password" type="password" required placeholder="Contraseña" [(ngModel)]="personas.password_persona" name="password_persona"></ion-input>
               </ion-item>
-              <br/>
+              <br/><!--
               <ion-item color="yav2">
                 <ion-icon name="lock" class="icon-login"></ion-icon>
                 <ion-input name="password" type="password" required placeholder="Repetir Contraseña"></ion-input>
-              </ion-item>
+              </ion-item>-->
 
             </ion-list>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button type="submit" fill="solid" expand="full">
+            <ion-button type="submit" fill="solid" expand="full" (click)="guardarPersona()">
               Registrarse
             </ion-button>
           </ion-col>
