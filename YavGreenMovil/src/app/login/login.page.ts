@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
       alert('Bienvenido')
       this.router.navigateByUrl('/inicio');
     }).catch(e => {
-      alert('Error')
+      alert('Error'+e)
       //this.toastr.error('Ha ocurrido un error al Loguearse!', 'Usuario o Contraseña Incorrecto');
     });
 

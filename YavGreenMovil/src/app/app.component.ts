@@ -23,11 +23,11 @@ export class AppComponent {
       url: '/persona',
       icon: 'person'
     },
-    {
+    /*{
       title: 'Lector de Puntos',
       url: '/lector-qr',
       icon: 'qr-scanner'
-    },
+    },*/
     {
       title: 'Lista de Productos',
       url: '/canjeo',

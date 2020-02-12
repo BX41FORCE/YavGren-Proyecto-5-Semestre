@@ -10,8 +10,8 @@
 <ion-content color="yav1">
   <br />
   <img id="img" src="../../assets/icon/favicon.png">
-    <h1 style="text-align: center;">Puntos</h1>
-    <h5 style="text-align: center;">100</h5>
+  <h1 style="text-align: center;">Puntos</h1>
+  <h5 style="text-align: center;">100</h5>
   <br />
   <ion-item id="c1" color="yav2">
     <ion-label>Nombre: Usuario Admin</ion-label>
@@ -21,4 +21,15 @@
     <ion-label>Correo: test@gmail.com</ion-label>
   </ion-item>
   <br />
+  <ion-button expand="full" (click)="scanCode()" color="secondary">
+    <ion-icon name="qr-scanner"></ion-icon>Escanear Código
+  </ion-button>
+  <!--<ngx-qrcode [qrc-element-type]="elementType" [qrc-value]="qrData">
+  </ngx-qrcode>-->
+  <ion-card *ngIf="scannedCode">
+    <ion-button expand="full" (click)="decodificar()" color="warning">
+      Confirmar
+    </ion-button>
+    <!--Resultado del QR : {{scannedCode}}-->
+  </ion-card>
 </ion-content>
