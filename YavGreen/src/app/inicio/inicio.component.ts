@@ -15,6 +15,8 @@ export class InicioComponent implements OnInit {
  eventos: any = [];
  noticia:Noticias;
  noticias: any = [];
+ noticia1:Noticias;
+ noticias1: any = [];
  
   constructor(private eventosServices:EventosService,private noticiasServices:NoticiasService,
     private toastr: ToastrService ) {
@@ -44,5 +46,12 @@ export class InicioComponent implements OnInit {
       this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
     });
   }
-
+  verNoticia(id){
+    console.log(this.noticias1);
+    this.noticiasServices.getNoticasById(id).then(respuesta => {
+      this.noticias1= respuesta;
+    }).catch(error => {
+      this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
 }

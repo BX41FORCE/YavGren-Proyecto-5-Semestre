@@ -43,8 +43,8 @@
       <div class="card mb-3" style="border-color: #B8CD33; background-color: rgb(80, 75, 80);">
         <div class="card-body">
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_noticia}}</h5>
-          <p class="card-text" style="color: white">{{item.descripcion_noticia}}</p>
-          <button class="btn btn-sm btn-success" type="submit" data-toggle="modal" data-target="#noticiaModal"><i
+          <!--<p class="card-text" style="color: white">{{item.descripcion_noticia}}</p>-->
+          <button class="btn btn-sm btn-success" (click)="verNoticia(item.id_noticia)" type="submit" data-toggle="modal" data-target="#noticiaModal"><i
               class="far fa-comment-dots"></i> Ver
             Noticia</button>
           <!-- Modal -->
@@ -59,7 +59,7 @@
         <div class="card-body" style="background-color: #082050;">
           <img id="eventoImg" src="../../assets/img/gestionambiental_principal.jpg" style="float: right;" />
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_evento}}</h5>
-          <p class="card-text text-justify" style="color: white;">Objetivo: {{item.objetivo_evento}}<br /> Este: {{item.fecha_evento}}
+          <p class="card-text text-justify" style="color: white;"> <!--Objetivo: {{item.objetivo_evento}}<br />--> Este: {{item.fecha_evento}}
             <br />Lugar: {{item.lugar_evento}}</p>
           <button class="btn btn-sm btn-primary" type="submit" data-toggle="modal" data-target="#eventoModal"><i
               class="fas fa-calendar-day"></i> Ver Evento
@@ -73,25 +73,18 @@
 </div>
 <div class="modal fade" id="noticiaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
   aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document" >
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;">
-          {{nombre_noticia}}</h5>
+        <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;" *ngFor="let item of noticias1">
+          {{item.nombre_noticia}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-justify">
+      <div class="modal-body text-justify" *ngFor="let item of noticias1">
         <img id="modalImg" src="../../assets/img/Reciclaje.jpg" hspace="5" vspace="5" style="float: right;" />
-        Existen formas sencillas y a la vez creativas e innovadoras de cuidar el planeta; acciones que cualquiera de
-        nosotros puede ejecutar en casa de manera que aportemos un grano de arena en la conservación del lugar donde
-        vivimos. Hablamos del reciclaje, pero no del conocido proceso de reutilizar el papel, sino de otros materiales
-        que quizá ya pensabas desechar.
-
-        Botellas de plástico, puertas viejas, tarjetas de crédito, utensilios de cocina y otras cosas más que estén en
-        desuso bien pueden ser transformadas en artículos para decorar el hogar o la oficina. Es una manera bastante
-        viable de darles una segunda vida a esos objetos y evitar contaminar aún más el planeta.
+        {{item.descripcion_noticia}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
