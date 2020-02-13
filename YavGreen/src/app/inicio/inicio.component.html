@@ -59,7 +59,7 @@
         <div class="card-body" style="background-color: #082050;">
           <img id="eventoImg" src="../../assets/img/gestionambiental_principal.jpg" style="float: right;" />
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_evento}}</h5>
-          <p class="card-text text-justify" style="color: white;"> <!--Objetivo: {{item.objetivo_evento}}<br />--> Este: {{item.fecha_evento}}
+          <p class="card-text text-justify" style="color: white;"> <!--Objetivo: {{item.objetivo_evento}}<br />--> Fecha: {{item.fecha_evento|date:"dd/MM/yyyy"}}
             <br />Lugar: {{item.lugar_evento}}</p>
           <button class="btn btn-sm btn-primary" (click)="verEvento(item.id_evento)" type="submit" data-toggle="modal" data-target="#eventoModal"><i
               class="fas fa-calendar-day"></i> Ver Evento
@@ -107,7 +107,7 @@
        <!-- <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" hspace="5" vspace="5"
           style="float: right;" />-->
         <p>Lugar del evento: {{item.lugar_evento}}</p>
-        <p>Fecha del evento: {{item.fecha_evento}}</p>
+        <p>Fecha del evento: {{item.fecha_evento|date:"dd/MM/yyyy"}}</p>
         <p>Objetivo:<br /> {{item.objetivo_evento}}</p>
         <br />
         <div class="alert alert-primary" role="alert">
