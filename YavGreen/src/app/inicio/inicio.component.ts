@@ -11,25 +11,27 @@ import { NoticiasService } from '../servicios/noticias.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
- evento:Evento;
- eventos: any = [];
- noticia:Noticias;
- noticias: any = [];
- noticia1:Noticias;
- noticias1: any = [];
- 
-  constructor(private eventosServices:EventosService,private noticiasServices:NoticiasService,
-    private toastr: ToastrService ) {
-      this.evento = new Evento();
+  evento: Evento;
+  eventos: any = [];
+  evento1: Evento;
+  eventos1: any = [];
+  noticia: Noticias;
+  noticias: any = [];
+  noticia1: Noticias;
+  noticias1: any = [];
+
+  constructor(private eventosServices: EventosService, private noticiasServices: NoticiasService,
+    private toastr: ToastrService) {
+    this.evento = new Evento();
     this.noticia = new Noticias();
-     }
+  }
 
   ngOnInit() {
     this.obtenerEventos();
     this.obtenerNoticias();
-    
+
   }
-  
+
   obtenerEventos() {
     console.log(this.eventos);
     this.eventosServices.getAllEventos().then(respuesta => {
@@ -46,12 +48,20 @@ export class InicioComponent implements OnInit {
       this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
     });
   }
-  verNoticia(id){
+  verNoticia(id) {
     console.log(this.noticias1);
     this.noticiasServices.getNoticasById(id).then(respuesta => {
-      this.noticias1= respuesta;
+      this.noticias1 = respuesta;
     }).catch(error => {
       this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
+  verEvento(id) {
+    console.log(this.eventos1);
+    this.eventosServices.getEventoById(id).then(respuesta => {
+      this.eventos1 = respuesta;
+    }).catch(error => {
+      this.toastr.error('Aun no hay eventos disponibles!', 'Oops algo ha salido mal!');
     });
   }
 }

@@ -61,7 +61,7 @@
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_evento}}</h5>
           <p class="card-text text-justify" style="color: white;"> <!--Objetivo: {{item.objetivo_evento}}<br />--> Este: {{item.fecha_evento}}
             <br />Lugar: {{item.lugar_evento}}</p>
-          <button class="btn btn-sm btn-primary" type="submit" data-toggle="modal" data-target="#eventoModal"><i
+          <button class="btn btn-sm btn-primary" (click)="verEvento(item.id_evento)" type="submit" data-toggle="modal" data-target="#eventoModal"><i
               class="fas fa-calendar-day"></i> Ver Evento
           </button>
         </div>
@@ -97,22 +97,21 @@
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;">
-          Evento de Plantación de Arboles</h5>
+        <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;" *ngFor="let item of eventos1">
+          {{item.nombre_evento}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-justify">
+      <div class="modal-body text-justify" *ngFor="let item of eventos1">
        <!-- <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" hspace="5" vspace="5"
           style="float: right;" />-->
-        <p>Lugar del evento: </p>
-        <p>Fecha del evento: </p>
-        <p>Objetivo:<br /> Se llevará a cabo la plantación de 30 árboles a los alrededores del Instituto. <br /> Traer
-          10 fundas de Basura</p>
+        <p>Lugar del evento: {{item.lugar_evento}}</p>
+        <p>Fecha del evento: {{item.fecha_evento}}</p>
+        <p>Objetivo:<br /> {{item.objetivo_evento}}</p>
         <br />
         <div class="alert alert-primary" role="alert">
-          Este evento te recompensará con 100 puntos
+          Este evento te recompensará con {{item.puntaje_evento}} puntos
         </div>
       </div>
       <div class="modal-footer">
