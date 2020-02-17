@@ -7,15 +7,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="yav1" routerLink="/noticia-detalle">
-  <ion-card color="yav2" *ngFor="let item of noticias">
+<ion-content color="yav1">
+  <ion-card color="yav2" *ngFor="let item of noticias" [routerLink]="['/noticia-detalle/',item.id_noticia]">
     <ion-item color="yav2">
       <h2>{{item.nombre_noticia}}</h2>
       <br>
     </ion-item>
     <img src="assets/img/Reciclaje1.png">
     <ion-card-content>
-      <p>{{item.descripcion_noticia}}</p>
+      <!--<p>{{item.descripcion_noticia}}</p>-->
     </ion-card-content>
   </ion-card>
 

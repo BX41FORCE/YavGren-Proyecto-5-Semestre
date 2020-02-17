@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../models/persona';
 import { AuthenticationService } from '../servicio/authentication.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-registro',
@@ -31,16 +32,28 @@ export class RegistroPage implements OnInit {
       this.authenticationService.postPersona(this.personas).then(r => {
         this.authenticationService.setToken(r['token']);
         this.personas = r;
-        alert('Registrado con éxito')
+        Swal.fire({
+          timer: 1600,
+          icon: 'success',
+          title: 'Registrado'
+        })
         //this.toastr.success('Registrado con Exito!', 'Excelente');
         this.router.navigateByUrl('/inicio');
       }).catch(e => {
-        alert('Error al Registrarse')
+        Swal.fire({
+          timer: 1700,
+          icon: 'error',
+          title: 'Ha ocurrido un error al Registrarse!',
+        })
         //this.toastr.error('Ops!', 'Ha ocurrido un error al Registarse!');
       });
     }
     else {
-      alert('Todos los campos deben eestar llenos')
+      Swal.fire({
+        timer: 1700,
+        icon: 'error',
+        title: 'Todos los campos deben estar llenos!',
+      })
       //this.toastr.error('Ingrese todos los campos', 'Ha ocurrido un error al Registarse!');
     }
   }

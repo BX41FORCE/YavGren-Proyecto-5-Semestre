@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../models/persona';
 import { AuthenticationService } from '../servicio/authentication.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -27,10 +28,19 @@ export class LoginPage implements OnInit {
       this.authenticationService.setToken(r['token']);
       this.personas = r;
       //this.toastr.success('Ingresado con Exito!', 'Excelente');
-      alert('Bienvenido')
+      Swal.fire({
+        timer: 1600,
+        icon: 'success',
+        title: 'Bienvenido'
+      })
       this.router.navigateByUrl('/inicio');
     }).catch(e => {
-      alert('Error'+e)
+      Swal.fire({
+        timer: 1700,
+        icon: 'error',
+        title: 'Ha ocurrido un error al Loguearse!',
+        text: 'Usuario o Contraseña Incorrecto',
+      })
       //this.toastr.error('Ha ocurrido un error al Loguearse!', 'Usuario o Contraseña Incorrecto');
     });
 

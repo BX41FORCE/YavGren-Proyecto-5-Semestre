@@ -8,17 +8,17 @@
 </ion-header>
 
 <ion-content color="yav2">
-  <div id="c" style="text-align: justify;">
+  <div id="c" style="text-align: justify;" *ngFor="let item of eventos">
     <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;">
-      Evento de Plantación de Arboles</h5>
+      {{item.nombre_evento}}</h5>
     <img id="modalImg" src="../../assets/img/ecologia-social.jpg" />
-    <p>Lugar del evento: </p>
-    <p>Fecha del evento: </p>
-    <p>Objetivo:<br/> Se llevará a cabo la plantación de 30 árboles a los alrededores del Instituto. <br/> Traer 10 fundas de Basura</p>
+    <p>Lugar del evento: {{item.lugar_evento}}</p>
+    <p>Fecha del evento: {{item.fecha_evento|date:"dd/MM/yyyy"}}</p>
+    <p>Objetivo:<br/> {{item.objetivo_evento}}</p>
     <br />
     <ion-button color="yav1" routerLink="/persona">
       <ion-icon name="arrow-up"></ion-icon>
-      <div>Ganar Los 100 Puntos</div>
+      <div>Ganar Los {{item.puntaje_evento}} Puntos</div>
     </ion-button>
     <ion-button color="yav3" routerLink="/evento">
       Regresar

@@ -43,11 +43,11 @@ const routes: Routes = [
     loadChildren: () => import('./noticia/noticia.module').then(m => m.NoticiaPageModule), canActivate: [AuthGuard]
   },
   {
-    path: 'evento-detalle',
+    path: 'evento-detalle/:id',
     loadChildren: () => import('./evento-detalle/evento-detalle.module').then(m => m.EventoDetallePageModule), canActivate: [AuthGuard]
   },
   {
-    path: 'noticia-detalle',
+    path: 'noticia-detalle/:id',
     loadChildren: () => import('./noticia-detalle/noticia-detalle.module').then(m => m.NoticiaDetallePageModule), canActivate: [AuthGuard]
   },
   {

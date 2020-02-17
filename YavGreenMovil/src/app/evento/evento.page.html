@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="yav1" routerLink="/evento-detalle">
-  <ion-card color="yav3" *ngFor="let item of eventos">
+<ion-content color="yav1">
+  <ion-card color="yav3" *ngFor="let item of eventos" [routerLink]="['/evento-detalle/',item.id_evento]">
 
     <ion-item color="yav3">
       <h4>{{item.nombre_evento}}</h4>
@@ -18,12 +18,12 @@
     <img src="assets/img/ecologia-social.jpg">
 
     <ion-card-content>
-      <p class="card-text text-justify" style="color: white;">Objetivo: {{item.objetivo_evento}}<br /> Este: {{item.fecha_evento}}
+      <p class="card-text text-justify" style="color: white;"><!--Objetivo: {{item.objetivo_evento}}<br />--> Este: {{item.fecha_evento|date:"dd/MM/yyyy"}}
         <br />Lugar: {{item.lugar_evento}}</p>
     </ion-card-content>
 
     <ion-button color="yav1">
-      <ion-icon name="arrow-up"></ion-icon>100 puntos
+      <ion-icon name="arrow-up"></ion-icon>{{item.puntaje_evento}} puntos
     </ion-button >
   </ion-card>
 </ion-content>

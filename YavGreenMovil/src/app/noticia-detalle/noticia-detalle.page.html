@@ -8,18 +8,11 @@
 </ion-header>
 
 <ion-content color="yav2">
-  <div id="c" style="text-align: justify;">
+  <div id="c" style="text-align: justify;" *ngFor="let item of noticias">
     <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;">
-      Nueva forma de reciclaje inteligente</h5>
+      {{item.nombre_noticia}}</h5>
     <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" />
-    <p> Existen formas sencillas y a la vez creativas e innovadoras de cuidar el planeta; acciones que cualquiera de
-      nosotros puede ejecutar en casa de manera que aportemos un grano de arena en la conservación del lugar donde
-      vivimos. Hablamos del reciclaje, pero no del conocido proceso de reutilizar el papel, sino de otros materiales
-      que quizá ya pensabas desechar.
-
-      Botellas de plástico, puertas viejas, tarjetas de crédito, utensilios de cocina y otras cosas más que estén en
-      desuso bien pueden ser transformadas en artículos para decorar el hogar o la oficina. Es una manera bastante
-      viable de darles una segunda vida a esos objetos y evitar contaminar aún más el planeta.</p>
+    <p> {{item.descripcion_noticia}}</p>
     <br />
     <p></p>
     <ion-button color="yav3" routerLink="/noticia">
