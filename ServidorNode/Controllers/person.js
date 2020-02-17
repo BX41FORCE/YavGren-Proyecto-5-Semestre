@@ -26,7 +26,7 @@ router.put('/put/:id',function(req, res){
 router.delete('/del/:id',function(req, res){
     db('personas').where({id_persona: req.params.id}).del().then(function(data){
         res.json({success: true});
-        //res.sendStatus(200).send(data);
+        res.sendStatus(200).send(data);
     });
 });
 router.get('/get/:id',function(req, res){

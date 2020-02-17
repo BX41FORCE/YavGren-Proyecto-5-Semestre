@@ -2,6 +2,7 @@ import { ProductoService } from './../servicios/producto.service';
 import { Producto } from './../models/producto';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-lista',
@@ -10,18 +11,22 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListaComponent implements OnInit {
 
-  producto:Producto;
+  producto: Producto;
   productos: any = [];
+  prod: Producto;
+  prods: any = [];
 
 
-  constructor(private productoServices:ProductoService,
-    private toastr: ToastrService) { }
+  constructor(private productoServices: ProductoService, private toastr: ToastrService) {
+    this.producto = new Producto;
+  }
 
   ngOnInit() {
     this.obtenerProductos();
+
   }
+
   obtenerProductos() {
-    console.log(this.productos);
     this.productoServices.getAllProductos().then(respuesta => {
       this.productos = respuesta;
       this.toastr.success('Cargado con Exito!', 'Excelente');
@@ -29,7 +34,29 @@ export class ListaComponent implements OnInit {
       this.toastr.error('Aun no hay productos disponibles!', 'Oops algo ha salido mal!');
     });
   }
-  
-  
+
+  eliminarProducto(id) {
+    console.log(id)
+    this.productoServices.deleteProducto(id).then(respuesta => {
+      this.toastr.success('Eliminado con Exito!', 'Excelente');
+      this.obtenerProductos();
+    }).catch(error => {
+      this.toastr.error('Aun no hay productos disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
+
+  verProducto(id) {
+    console.log(this.prod);
+    this.productoServices.getProductoById(id).then(respuesta => {
+      this.prod = respuesta;
+    }).catch(error => {
+      this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
 
 }
+
+
+
+
+

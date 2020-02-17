@@ -20,13 +20,13 @@ router.post('/post',function(req,res){
     });
 });
 
-router.delete('/:id',function(req, res){
+router.delete('/del/:id',function(req, res){
     db('productos').where({id_producto: req.params.id}).del().then(function(data){
         res.json({success: true});
         //res.sendStatus(200).send(data);
     });
 });
-router.get('/:id',function(req, res){
+router.get('/get/:id',function(req, res){
     db('productos').where({id_producto: req.params.id}).select().then(function(data){
         res.send(data);
        

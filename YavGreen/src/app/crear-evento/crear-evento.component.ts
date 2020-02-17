@@ -135,6 +135,10 @@ export class CrearEventoComponent implements OnInit {
     this.href = document.getElementsByTagName('img')[0].src;
   }
   
+  salir(){
+    this.eventos=null;
+    this.eventos= new Evento;
+  }
 
   
 }

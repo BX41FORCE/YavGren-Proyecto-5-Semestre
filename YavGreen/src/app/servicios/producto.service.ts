@@ -42,8 +42,8 @@ export class ProductoService {
     });
   }
 
-  deleteProducto(producto:Producto){
-    return this.http.delete(this.url + '/:id/'  + producto.id_producto).toPromise().then(r => {
+  deleteProducto(id){
+    return this.http.delete(this.url + '/del/'  + id).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;

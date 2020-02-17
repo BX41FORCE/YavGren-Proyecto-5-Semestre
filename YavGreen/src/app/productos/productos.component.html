@@ -4,17 +4,17 @@
             <div class="row">
                 <div class="col">
                     <label for="titulo">Nombre del Producto</label>
-                    <input type="text" class="form-control col" placeholder="Nombre del Producto" value="" required [(ngModel)]="productos.nombre_producto">
+                    <input type="text" class="form-control col" placeholder="Nombre del Producto" value="" required [name]='productos.nombre_producto' [(ngModel)]="productos.nombre_producto">
                     <br />
                     <label for="descripcion">Descripción del producto</label>
-                    <p></p>
-                    <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;" [(ngModel)]="productos.descripcion_producto"></textarea>
+                    <p> </p>
+                    <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;"  [name]='productos.descripcion_producto'[(ngModel)]="productos.descripcion_producto"></textarea>
                     <p></p>
                 </div>
                 <div class="col">
                     <label for="puntaje">Puntaje del Producto</label>
                 <input type="number" min="50" max="100" class="form-control col"
-                    placeholder="Puntaje del Porducto" name="valorProducto" [(ngModel)]="valorProducto">
+                    placeholder="Puntaje del Porducto" [name]='valorProducto' [(ngModel)]="valorProducto">
                 <br />  
                     <label for="imagen">Seleccionar Imagen</label>
                     <input #file type="file" accept='image/*' (change)="preview(file.files)" />
@@ -26,7 +26,7 @@
             <div class="col">
                 <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" (click)="guardarProducto()">Insertar Producto</button>
                 <button class="btn btn-outline-white btn-sm" disabled></button>
-                <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit">Cancelar</button>
+                <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit" [routerLink]="['inicio']">Cancelar</button>
             </div>
         </div>
         <br />
