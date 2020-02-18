@@ -55,4 +55,10 @@ export class CrearNoticiaComponent implements OnInit {
       this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
     });  
 }
+
+salir(){
+  this.noticias=null;
+  this.noticias= new Noticias;
+}
+
 }

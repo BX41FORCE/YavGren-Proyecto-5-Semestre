@@ -6,15 +6,23 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url = 'http://192.168.1.5:3000/api';
+  url = 'http://192.168.1.7:3000/api';
   constructor(private http: HttpClient) { }
 
-  getPerson(){
+  getPerson() {
     return this.http.get(this.url + '/person/get').toPromise().then(response => {
       return response;
     }).catch(error => {
       return error.body;
-    }); 
+    });
+  }
+
+  getPersonaByEmail(email) {
+    return this.http.get(this.url + '/person/get/correo/' + email).toPromise().then(r => {
+      return r;
+    }).catch(e => {
+      return e.body;
+    });
   }
 
   postPersona(persona) {
@@ -33,6 +41,18 @@ export class AuthenticationService {
   }
   setToken(token: string) {
     localStorage.setItem('token', token);
+  }
+
+  setIdPersona(id: any) {
+    localStorage.setItem('id', id);
+  }
+
+  getIdPersona() {
+    console.log(localStorage.getItem('id'));
+  }
+
+  deleteidPersona() {
+    localStorage.removeItem('id');
   }
 
   deleteToken() {

@@ -9,12 +9,13 @@ import { ResourceLoader } from '@angular/compiler';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService,) { }
+  constructor(private authenticationService: AuthenticationService, ) { }
 
   ngOnInit() {
   }
-  salir(){
+  salir() {
     this.authenticationService.deleteToken();
+    this.authenticationService.deleteidPersona();
     location.reload();
   }
 

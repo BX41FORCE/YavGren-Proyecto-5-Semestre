@@ -1,5 +1,5 @@
 import { Producto } from './../models/producto';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProductoService } from '../servicios/producto.service';
 
@@ -15,6 +15,7 @@ export class ProductosComponent implements OnInit {
   valorProducto:number;
 
   productos:Producto;
+  @Input() producto: any[];
   constructor(private productosService: ProductoService, private toastr: ToastrService) {
     this.productos= new Producto;
    }
@@ -62,5 +63,13 @@ export class ProductosComponent implements OnInit {
     });  
 }
   
+verProducto(id) {
+  this.productosService.getProductoById(id).then(respuesta => {
+    this.producto = respuesta;
+    console.log(this.producto);
+  }).catch(error => {
+    this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
+  });
+}
 
 }

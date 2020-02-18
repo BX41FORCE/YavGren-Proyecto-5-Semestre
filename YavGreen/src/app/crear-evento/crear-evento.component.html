@@ -44,7 +44,7 @@
                     type="submit " (click)="guardarEvento()">Crear Evento</button>
                 <button class="btn btn-outline-white btn-sm " disabled></button>
                 <button class="btn btn-lg btn-outline-dark btn-sm " style="background-color: #F54A4B; "
-                    type="reset ">Cancelar</button>
+                    type="reset" (click)="salir()" [routerLink]="['inicio']">Cancelar</button>
             </div>
         </div>
         <br />

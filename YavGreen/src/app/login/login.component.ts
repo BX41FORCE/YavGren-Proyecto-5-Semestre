@@ -3,6 +3,7 @@ import { Persona } from '../models/persona';
 import { AuthenticationService } from '../servicios/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ParseSourceSpan } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   personas: Persona;
+  persona1: Persona;
+  personas1: any = [];
 
   constructor(private authenticationService: AuthenticationService, private toastr: ToastrService, private router: Router) {
     this.personas = new Persona();
+    this.persona1 = new Persona();
   }
 
   ngOnInit() {
@@ -24,14 +28,22 @@ export class LoginComponent implements OnInit {
   }
   //login y asignacion de token para el usuario q se loguee
   LoguearPersona() {
+    this.verPersona(this.personas.correo_persona);
     this.authenticationService.loginPersona(this.personas).then(r => {
       this.authenticationService.setToken(r['token']);
       this.personas = r;
+      this.router.navigateByUrl('/inicio');
       this.toastr.success('Ingresado con Exito!', 'Excelente');
-      this.router.navigateByUrl('/home');
     }).catch(e => {
       this.toastr.error('Ha ocurrido un error al Loguearse!', 'Usuario o Contraseña Incorrecto');
     });
+  }
 
+  verPersona(email) {
+    this.authenticationService.getPersonaByEmail(email).then(respuesta => {
+      this.authenticationService.setIdPersona(respuesta[0].id_persona);
+    }).catch(error => {
+      this.toastr.error('No se encontro a la persona');
+    });
   }
 }
