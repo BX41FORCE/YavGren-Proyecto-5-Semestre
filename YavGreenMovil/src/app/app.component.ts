@@ -74,8 +74,10 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-  salir(){
+  salir() {
     this.authenticationService.deleteToken();
+    this.authenticationService.deleteCorreo();
+    this.authenticationService.deletePersonaLS();
     location.reload();
   }
 }

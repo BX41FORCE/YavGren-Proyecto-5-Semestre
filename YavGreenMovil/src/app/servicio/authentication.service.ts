@@ -41,6 +41,18 @@ export class AuthenticationService {
     });
   }
 
+  setCorreo(email: any) {
+    localStorage.setItem('email', email);
+    alert(email);
+  }
+
+  getCorreo() {
+    return localStorage.getItem('email');
+  }
+
+  deleteCorreo() {
+    localStorage.removeItem('email');
+  }
 
   setPersonaLS(id: any, nombre: any, apellido: any, correo: any, puntaje: any) {
     localStorage.setItem('id', id);
