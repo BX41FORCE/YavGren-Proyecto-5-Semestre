@@ -6,7 +6,7 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url = 'http://192.168.1.7:3000/api';
+  url = 'http://192.168.1.3:3000/api';
   constructor(private http: HttpClient) { }
 
   getPerson() {
@@ -43,16 +43,25 @@ export class AuthenticationService {
     localStorage.setItem('token', token);
   }
 
-  setIdPersona(id: any) {
+  setPersonaLS(id: any, nombre: any, apellido: any, puntaje: any) {
     localStorage.setItem('id', id);
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('apellido', apellido);
+    localStorage.setItem('puntaje', puntaje);
   }
 
-  getIdPersona() {
+  getPersonaLS() {
     console.log(localStorage.getItem('id'));
+    console.log(localStorage.getItem('nombre'));
+    console.log(localStorage.getItem('apellido'));
+    console.log(localStorage.getItem('puntaje'));
   }
 
-  deleteidPersona() {
+  deletePersonaLS() {
     localStorage.removeItem('id');
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('apellido');
+    localStorage.removeItem('puntaje');
   }
 
   deleteToken() {

@@ -24,6 +24,7 @@ export class LoginPage implements OnInit {
   }
   //login y asignacion de token para el usuario q se loguee
   LoguearPersona() {
+    this.verPersona(this.personas.correo_persona);
     this.authenticationService.loginPersona(this.personas).then(r => {
       this.authenticationService.setToken(r['token']);
       this.personas = r;
@@ -44,5 +45,13 @@ export class LoginPage implements OnInit {
       //this.toastr.error('Ha ocurrido un error al Loguearse!', 'Usuario o Contraseña Incorrecto');
     });
 
+  }
+  verPersona(email) {
+    this.authenticationService.getPersonaByEmail(email).then(respuesta => {
+      this.authenticationService.setPersonaLS(respuesta[0].id_persona, respuesta[0].nombre_persona, respuesta[0].apellido_persona, respuesta[0].correo_persona, respuesta[0].puntaje_persona);
+    }).catch(error => {
+      alert('No se encontro a la persona');
+      //this.toastr.error('No se encontro a la persona');
+    });
   }
 }

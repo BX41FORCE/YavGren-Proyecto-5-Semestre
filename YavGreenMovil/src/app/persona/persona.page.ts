@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ToastController } from '@ionic/angular';
+import { AuthenticationService } from '../servicio/authentication.service';
 
 @Component({
   selector: 'app-persona',
@@ -11,8 +12,13 @@ export class PersonaPage implements OnInit {
   qrData = 'https://ionicacademy.com/';
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
-  items =[0];
-  constructor(private barcodeScanner: BarcodeScanner, private toastCtrl: ToastController) {
+  persona: any = [];
+  usuarioId: any;
+  usuarioNombre: any;
+  usuarioApellido: any;
+  usuarioCorreo: any;
+  usuarioPuntaje: any;
+  constructor(private authenticationService: AuthenticationService, private barcodeScanner: BarcodeScanner, private toastCtrl: ToastController) {
 
   }
 
@@ -50,6 +56,12 @@ export class PersonaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.persona = this.authenticationService.getPersonaLS();
+    this.usuarioId = this.persona[0];
+    this.usuarioNombre = this.persona[1];
+    this.usuarioApellido = this.persona[2];
+    this.usuarioCorreo = this.persona[3];
+    this.usuarioPuntaje = this.persona[4];
   }
 
 }

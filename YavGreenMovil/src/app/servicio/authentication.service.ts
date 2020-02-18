@@ -6,15 +6,24 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url = 'http://192.168.1.7:3000/api';
+  url = 'http://192.168.1.3:3000/api';
+  persona: any = [];
   constructor(private http: HttpClient) { }
 
-  getPerson(){
+  getPerson() {
     return this.http.get(this.url + '/person/get').toPromise().then(response => {
       return response;
     }).catch(error => {
       return error.body;
-    }); 
+    });
+  }
+
+  getPersonaByEmail(email) {
+    return this.http.get(this.url + '/person/get/correo/' + email).toPromise().then(r => {
+      return r;
+    }).catch(e => {
+      return e.body;
+    });
   }
 
   postPersona(persona) {
@@ -31,6 +40,29 @@ export class AuthenticationService {
       return error.body;
     });
   }
+
+
+  setPersonaLS(id: any, nombre: any, apellido: any, correo: any, puntaje: any) {
+    localStorage.setItem('id', id);
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('apellido', apellido);
+    localStorage.setItem('correo', correo);
+    localStorage.setItem('puntaje', puntaje);
+  }
+
+  getPersonaLS() {
+    this.persona = [localStorage.getItem('id'), localStorage.getItem('nombre'), localStorage.getItem('apellido'), localStorage.getItem('correo'), localStorage.getItem('puntaje')]
+    return this.persona
+  }
+
+  deletePersonaLS() {
+    localStorage.removeItem('id');
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('apellido');
+    localStorage.removeItem('correo');
+    localStorage.removeItem('puntaje');
+  }
+
   setToken(token: string) {
     localStorage.setItem('token', token);
   }

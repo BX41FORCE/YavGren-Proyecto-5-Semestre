@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   }
   salir() {
     this.authenticationService.deleteToken();
-    this.authenticationService.deleteidPersona();
+    this.authenticationService.deletePersonaLS();
     location.reload();
   }
 

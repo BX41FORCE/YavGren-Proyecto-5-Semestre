@@ -4,6 +4,7 @@ import { Evento } from './../models/eventos';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NoticiasService } from '../servicios/noticias.service';
+import { AuthenticationService } from '../servicios/authentication.service';
 
 @Component({
   selector: 'app-inicio',
@@ -20,7 +21,7 @@ export class InicioComponent implements OnInit {
   noticia1: Noticias;
   noticias1: any = [];
 
-  constructor(private eventosServices: EventosService, private noticiasServices: NoticiasService,
+  constructor(private authenticationService: AuthenticationService, private eventosServices: EventosService, private noticiasServices: NoticiasService,
     private toastr: ToastrService) {
     this.evento = new Evento();
     this.noticia = new Noticias();
@@ -29,7 +30,7 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     this.obtenerEventos();
     this.obtenerNoticias();
-
+    this.authenticationService.getPersonaLS();
   }
 
   obtenerEventos() {

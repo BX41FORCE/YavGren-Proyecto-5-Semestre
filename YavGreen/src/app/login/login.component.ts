@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
   verPersona(email) {
     this.authenticationService.getPersonaByEmail(email).then(respuesta => {
-      this.authenticationService.setIdPersona(respuesta[0].id_persona);
+      this.authenticationService.setPersonaLS(respuesta[0].id_persona, respuesta[0].nombre_persona, respuesta[0].apellido_persona, respuesta[0].puntaje_persona);
     }).catch(error => {
       this.toastr.error('No se encontro a la persona');
     });
