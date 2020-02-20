@@ -6,7 +6,7 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url = 'http://192.168.1.3:3000/api';
+  url = 'http://192.168.1.5:3000/api';
   persona: any = [];
   constructor(private http: HttpClient) { }
 
@@ -33,6 +33,15 @@ export class AuthenticationService {
       return error.body;
     });
   }
+
+  putPersona(id, persona) {
+    return this.http.put(this.url + '/person/put/' + id + "/", persona).toPromise().then(response => {
+      return response;
+    }).catch(error => {
+      return error.body;
+    });
+  }
+
   loginPersona(persona) {
     return this.http.post(this.url + '/people/login', persona).toPromise().then(response => {
       return response;
@@ -43,7 +52,6 @@ export class AuthenticationService {
 
   setCorreo(email: any) {
     localStorage.setItem('email', email);
-    alert(email);
   }
 
   getCorreo() {
@@ -52,6 +60,19 @@ export class AuthenticationService {
 
   deleteCorreo() {
     localStorage.removeItem('email');
+  }
+
+
+  setPuntaje(puntaje: any) {
+    localStorage.setItem('puntaje', puntaje);
+  }
+
+  getPuntaje() {
+    return localStorage.getItem('puntaje');
+  }
+
+  deletePuntaje() {
+    localStorage.removeItem('puntaje');
   }
 
   setPersonaLS(id: any, nombre: any, apellido: any, correo: any, puntaje: any) {

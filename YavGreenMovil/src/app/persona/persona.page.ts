@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 import { AuthenticationService } from '../servicio/authentication.service';
+import { Persona } from '../models/persona';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-persona',
@@ -12,14 +14,16 @@ export class PersonaPage implements OnInit {
   qrData = 'https://ionicacademy.com/';
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
-  persona: any = [];
+  usuario: any = [];
   usuarioId: any;
   usuarioNombre: any;
   usuarioApellido: any;
   usuarioCorreo: any;
   usuarioPuntaje: any;
-  constructor(private authenticationService: AuthenticationService, private barcodeScanner: BarcodeScanner, private toastCtrl: ToastController) {
+  personas: Persona;
 
+  constructor(private authenticationService: AuthenticationService, private barcodeScanner: BarcodeScanner, private toastCtrl: ToastController) {
+    this.personas = new Persona();
   }
 
   scanCode() {
@@ -30,8 +34,28 @@ export class PersonaPage implements OnInit {
     )
   }
 
+  actualizarPersona(puntos) {
+    this.personas.puntaje_persona = this.usuarioPuntaje+puntos;
+    this.authenticationService.putPersona(this.usuarioId, this.personas).then(r => {
+      this.authenticationService.setPuntaje(this.personas.puntaje_persona);
+      this.personas = r;
+      Swal.fire({
+        timer: 1600,
+        icon: 'success',
+        title: 'Actualizado'
+      })
+    }).catch(e => {
+      Swal.fire({
+        timer: 1800,
+        icon: 'error',
+        title: 'Error de Comprobación!',
+        text: 'Qr incorrecto',
+      })
+    });
+    location.reload();
+  }
+
   decodificar() {
-    alert("Felicidades se acreditaron tus 100 puntos")
     var nombre = "";
     var puntaje = "";
     var codigo = "";
@@ -52,16 +76,16 @@ export class PersonaPage implements OnInit {
     alert(nombre);
     alert(puntaje);
     alert(codigo);
-    location.reload();
+    this.actualizarPersona(puntaje);
   }
 
   ngOnInit() {
-    this.persona = this.authenticationService.getPersonaLS();
-    this.usuarioId = this.persona[0];
-    this.usuarioNombre = this.persona[1];
-    this.usuarioApellido = this.persona[2];
-    this.usuarioCorreo = this.persona[3];
-    this.usuarioPuntaje = this.persona[4];
+    this.usuario = this.authenticationService.getPersonaLS();
+    this.usuarioId = this.usuario[0];
+    this.usuarioNombre = this.usuario[1];
+    this.usuarioApellido = this.usuario[2];
+    this.usuarioCorreo = this.usuario[3];
+    this.usuarioPuntaje = this.usuario[4];
   }
 
 }
