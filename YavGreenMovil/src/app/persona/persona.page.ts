@@ -35,14 +35,16 @@ export class PersonaPage implements OnInit {
   }
 
   actualizarPersona(puntos) {
-    this.personas.puntaje_persona = this.usuarioPuntaje+puntos;
+    var suma = parseInt(this.usuarioPuntaje) + parseInt(puntos);
+    this.personas.puntaje_persona = suma;
+    this.authenticationService.deletePuntaje();
+    this.authenticationService.setPuntaje(suma);
     this.authenticationService.putPersona(this.usuarioId, this.personas).then(r => {
-      this.authenticationService.setPuntaje(this.personas.puntaje_persona);
       this.personas = r;
       Swal.fire({
-        timer: 1600,
+        timer: 1800,
         icon: 'success',
-        title: 'Actualizado'
+        title: 'Actualizado!',
       })
     }).catch(e => {
       Swal.fire({
@@ -52,7 +54,7 @@ export class PersonaPage implements OnInit {
         text: 'Qr incorrecto',
       })
     });
-    location.reload();
+    this.verDatos();
   }
 
   decodificar() {
@@ -73,19 +75,20 @@ export class PersonaPage implements OnInit {
         codigo += caracter
       }
     }
-    alert(nombre);
-    alert(puntaje);
-    alert(codigo);
     this.actualizarPersona(puntaje);
+    setTimeout(function () { location.reload() }, 2000);
   }
 
   ngOnInit() {
+    this.verDatos();
+  }
+
+  verDatos() {
     this.usuario = this.authenticationService.getPersonaLS();
     this.usuarioId = this.usuario[0];
     this.usuarioNombre = this.usuario[1];
     this.usuarioApellido = this.usuario[2];
     this.usuarioCorreo = this.usuario[3];
     this.usuarioPuntaje = this.usuario[4];
-  }
-
+  };
 }

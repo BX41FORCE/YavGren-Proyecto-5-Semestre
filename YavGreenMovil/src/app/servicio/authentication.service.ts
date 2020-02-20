@@ -75,12 +75,11 @@ export class AuthenticationService {
     localStorage.removeItem('puntaje');
   }
 
-  setPersonaLS(id: any, nombre: any, apellido: any, correo: any, puntaje: any) {
+  setPersonaLS(id: any, nombre: any, apellido: any, correo: any) {
     localStorage.setItem('id', id);
     localStorage.setItem('nombre', nombre);
     localStorage.setItem('apellido', apellido);
     localStorage.setItem('correo', correo);
-    localStorage.setItem('puntaje', puntaje);
   }
 
   getPersonaLS() {

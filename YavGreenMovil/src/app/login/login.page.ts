@@ -48,7 +48,8 @@ export class LoginPage implements OnInit {
   }
   verPersona(email) {
     this.authenticationService.getPersonaByEmail(email).then(respuesta => {
-      this.authenticationService.setPersonaLS(respuesta[0].id_persona, respuesta[0].nombre_persona, respuesta[0].apellido_persona, respuesta[0].correo_persona, respuesta[0].puntaje_persona);
+      this.authenticationService.setPersonaLS(respuesta[0].id_persona, respuesta[0].nombre_persona, respuesta[0].apellido_persona, respuesta[0].correo_persona);
+      this.authenticationService.setPuntaje(respuesta[0].puntaje_persona);
     }).catch(error => {
       alert('No se encontro a la persona');
       //this.toastr.error('No se encontro a la persona');
