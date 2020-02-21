@@ -36,4 +36,10 @@ router.get('/get/:id',function(req, res){
     });
 });
 
+router.get('/get/correo/:correo', function (req, res) {
+    db('personas').where({ correo_persona: req.params.correo }).select().then(function (data) {
+        res.send(data);
+    });
+});
+
 module.exports = router;

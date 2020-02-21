@@ -14,7 +14,7 @@ router.post('/post',function(req,res){
     });
   });
 
-  router.put('/:id',function(req, res){
+  router.put('/put/:id',function(req, res){
     db('productos').where({id_producto: req.params.id}).update(req.body).then(function(data){
         res.sendStatus(200).send(data);
     });

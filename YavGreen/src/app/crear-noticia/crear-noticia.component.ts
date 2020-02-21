@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NoticiasService } from '../servicios/noticias.service';
 import { Noticias } from '../models/noticias';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-crear-noticia",
@@ -9,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ["./crear-noticia.component.css"]
 })
 export class CrearNoticiaComponent implements OnInit {
+  //variables utilizadas
   public imagePath;
   imgURL: any;
   public message: string;
@@ -18,8 +20,8 @@ export class CrearNoticiaComponent implements OnInit {
 
   noticias:Noticias;
 
-
-  constructor(private noticiasService: NoticiasService, private toastr: ToastrService) {
+// constructor
+  constructor(private noticiasService: NoticiasService, private toastr: ToastrService,private router:Router) {
     this.noticias= new Noticias;
    }
 
@@ -43,6 +45,7 @@ export class CrearNoticiaComponent implements OnInit {
       this.imgURL = reader.result;
     };
   }
+  //funcion para guardar noticias en la base de datos
   guardarNoticia(){
     this.noticias.id_noticia_persona = 1 ;
     this.noticias.id_imagen_noticia=1; 
@@ -51,11 +54,12 @@ export class CrearNoticiaComponent implements OnInit {
       this.noticias = r;
       this.toastr.success(' Exito!', 'Excelente');
       this.noticias = new Noticias;
+      this.router.navigate(['/inicio'])
     }).catch(e => {
       this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
     });  
 }
-
+//funcion salir
 salir(){
   this.noticias=null;
   this.noticias= new Noticias;

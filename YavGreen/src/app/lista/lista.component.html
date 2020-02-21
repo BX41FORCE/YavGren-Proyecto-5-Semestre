@@ -1,67 +1,78 @@
-  
-    <div class="col-12 order-md-1">
-      <div class="card" style="border-color: #B8CD33;">
-        <div class="card-body" style="background-color: #3F3F3F;">
-          <h3 align="center" style="color: #B8CD33;">Productos</h3>
-          <table class="table">
-            <thead>
-              <th scope="col-sm-2" style="color: white;">Productos</th>
-              <th scope="col-sm-8" style="color: white;">Descripción</th>
-              <th scope="col-sm-2" style="color: white;">Costo</th>
+  <div class="col-12 order-md-1">
+    <div class="card" style="border-color: #B8CD33;">
+      <div class="card-body" style="background-color: #3F3F3F;">
+        <h3 align="center" style="color: #B8CD33;">Productos</h3>
+        <table class="table">
+          <thead>
+            <th scope="col-sm-2" style="color: white;">#</th>
+            <th scope="col-sm-2" style="color: white;">Productos</th>
+            <th scope="col-sm-8" style="color: white;">Descripción</th>
+            <th scope="col-sm-2" style="color: white;">Costo</th>
 
-              <th scope="col-sm-2" style="color: white;">Opciones</th>
-            </thead>
-            <tbody *ngFor="let item of productos">
-              <tr>
-                <td scope="col-sm-2" style="color: white;">{{item.nombre_producto}}</td>
-                <td scope="col-sm-8" style="color: white;">{{item.descripcion_producto}}</td>
-                <td scope="col-sm-2" style="color: white;">{{item.costo_puntos_producto}}</td>
-                <td scope="col-sm-2"> 
-                  <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;"
-                    type="submit" data-toggle="modal" data-target="#eventoModal" (click)="verProducto(item.id_producto)" >Editar</button>
-                  <button class="btn btn-outline-white btn-sm" disabled></button>
-                  <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;"
-                    type="submit" (click)="eliminarProducto(item.id_producto)">Eliminar</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            <th scope="col-sm-2" style="color: white;">Opciones</th>
+          </thead>
+          <tbody *ngFor="let item of productos">
+            <tr>
+              <td scope="col-sm-2" style="color: white;">{{item.id_producto}}</td>
+              <td scope="col-sm-2" style="color: white;">{{item.nombre_producto}}</td>
+              <td scope="col-sm-8" style="color: white;">{{item.descripcion_producto}}</td>
+              <td scope="col-sm-2" style="color: white;">{{item.costo_puntos_producto}}</td>
+              <td scope="col-sm-2">
+                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" type="submit"
+                  data-toggle="modal" data-target="#eventoModal" (click)="verProducto(item.id_producto)">Editar</button>
+                <button class="btn btn-outline-white btn-sm" disabled></button>
+                <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit"
+                  (click)="eliminarProducto(item.id_producto)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
     </div>
+
+  </div>
   <br>
-
   <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;" >
-          Editar Producto</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-justify" >
-        <label for="titulo">Nombre del Producto</label>
-        <input type="text" class="form-control col" placeholder="Nombre del Producto" value="" required [name]='productos.nombre_producto' [(ngModel)]="prod.nombre_producto">
-        <br />
-        <label for="descripcion">Descripción del producto</label>
-        <p> </p>
-        <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;"  [name]='productos.descripcion_producto'[(ngModel)]="prod.descripcion_producto"></textarea>
-        <p></p>
-    </div>
-    <div class="col">
-        <label for="puntaje">Puntaje del Producto</label>
-    <input type="number" min="50" max="100" class="form-control col"
-        placeholder="Puntaje del Porducto" [name]='valorProducto' [(ngModel)]="valorProducto">
-    <br />  
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle" style="color: #B8CD33;">
+            Actualizar Producto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-justify" *ngFor="let item of productos1">
+          <div class="row">
+            <div class="col">
+              <label for="titulo">Nombre del Producto</label>
+              <input type="text" class="form-control col" placeholder="Nombre del Producto"
+                [(ngModel)]="item.nombre_producto">
+              <br />
+              <label for="descripcion">Descripción del producto</label>
+              <p> </p>
+              <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;"
+                [(ngModel)]="item.descripcion_producto"></textarea>
+              <p></p>
+            </div>
+            <div class="col">
+              <label for="puntaje">Puntaje del Producto</label>
+              <input type="number" min="50" max="100" class="form-control col" placeholder="Puntaje del Porducto"
+                [(ngModel)]="item.costo_puntos_producto">
+              <br />
+              <label for="imagen">Seleccionar Imagen</label>
+              <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+              <p></p>
+              <img id="ImgNoticia" [src]="imgURL" *ngIf="imgURL">
+            </div>
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"
+              (click)="actualizarproducto(item.id_producto,item.nombre_producto,item.descripcion_producto,item.costo_puntos_producto)">Guardar
+              Cambios</button>
+            <button class="btn btn-outline-white btn-sm" disabled></button>
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>

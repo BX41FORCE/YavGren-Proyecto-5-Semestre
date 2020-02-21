@@ -24,7 +24,7 @@
             </div>
         <div class="row col-6">
             <div class="col">
-                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" (click)="guardarProducto()">Insertar Producto</button>
+                <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" (click)="edit ? actualizarproducto() : guardarProducto()">Insertar Producto</button>
                 <button class="btn btn-outline-white btn-sm" disabled></button>
                 <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit" [routerLink]="['inicio']">Cancelar</button>
             </div>

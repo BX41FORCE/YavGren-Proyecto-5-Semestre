@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'crear_evento', component: CrearEventoComponent, canActivate: [AuthGuard] },
   { path: 'test', component: TestComponent },
   { path: 'productos', component: ProductosComponent, canActivate: [AuthGuard] },
+  { path: 'productos/edit/:id', component: ProductosComponent, canActivate: [AuthGuard] },
   { path: 'lista', component: ListaComponent, canActivate: [AuthGuard] },
   { path: '', component: LoginComponent },
   { path: '**', redirectTo: '/inicio', pathMatch: 'full' },

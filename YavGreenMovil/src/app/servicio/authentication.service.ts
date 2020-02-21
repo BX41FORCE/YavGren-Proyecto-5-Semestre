@@ -6,7 +6,7 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url = 'http://192.168.43.51:3000/api';
+  url = 'http://192.168.1.9:3000/api';
   constructor(private http: HttpClient) { }
 
   getPerson(){

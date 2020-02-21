@@ -34,16 +34,16 @@ export class ProductoService {
     });
   }
 
-  putProducto(producto:Producto){
-    return this.http.put(this.url + '/:id/'  + producto.id_producto, producto).toPromise().then(r => {
-      return r;
-    }).catch(e => {
-      return e.body;
+  putProducto(id, producto) {
+    return this.http.put(this.url + '/put/' + id + '/', producto).toPromise().then(response => {
+      return response;
+    }).catch(error => {
+      return error.body;
     });
   }
 
-  deleteProducto(id){
-    return this.http.delete(this.url + '/del/'  + id).toPromise().then(r => {
+  deleteProducto(id) {
+    return this.http.delete(this.url + '/del/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
