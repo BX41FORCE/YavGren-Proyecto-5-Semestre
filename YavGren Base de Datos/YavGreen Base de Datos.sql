@@ -1,6 +1,9 @@
 CREATE DATABASE YavGreen;
 
 USE YavGreen;
+/*Importante colocar la clave de ingreso de mysql en la siquiente línea*/
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345';
+flush privileges;
 
 CREATE TABLE Roles (
 id_rol int auto_increment not null,
