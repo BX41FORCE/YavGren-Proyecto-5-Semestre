@@ -50,7 +50,7 @@
               data-toggle="modal" data-target="#noticiaModal"><i class="far fa-comment-dots"></i> Ver</button>
             <button class="btn btn-sm btn-warning" (click)="verNoticia(item.id_noticia)" type="submit"
               data-toggle="modal" data-target="#noticiaModalEdicion"><i class="fas fa-edit"></i> Editar</button>
-            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="eliminarNoticia(item.id_noticia)">Eliminar</button>
           </div>
         </div>
       </div>

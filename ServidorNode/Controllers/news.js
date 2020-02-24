@@ -20,7 +20,7 @@ router.put('/put/:id', function (req, res) {
     });
 });
 
-router.delete('/:id',function(req, res){
+router.delete('/del/:id',function(req, res){
     db('noticias').where({id_noticia: req.params.id}).del().then(function(data){
         res.json({success: true});
         //res.sendStatus(200).send(data);

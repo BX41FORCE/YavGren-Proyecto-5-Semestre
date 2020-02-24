@@ -87,4 +87,14 @@ export class InicioComponent implements OnInit {
       this.toastr.error('Error al Actualizar Noticia!', 'Oops algo ha salido mal!');
     });
   }
+
+  eliminarNoticia(id) {
+    console.log(id)
+    this.noticiasServices.deleteNoticias(id).then(respuesta => {
+      this.toastr.success('Eliminado con Exito!', 'Excelente');
+      this.obtenerNoticias();
+    }).catch(error => {
+      this.toastr.error('Aun no hay productos disponibles!', 'Oops algo ha salido mal!');
+    });
+  }
 }

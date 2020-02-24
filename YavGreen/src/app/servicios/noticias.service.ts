@@ -43,8 +43,8 @@ export class NoticiasService {
     });
   }
 
-  deleteEvento(noticias: Noticias) {
-    return this.http.delete(this.url + '/:id/' + noticias.id_noticias).toPromise().then(r => {
+  deleteNoticias(id) {
+    return this.http.delete(this.url + '/del/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
