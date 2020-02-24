@@ -33,22 +33,22 @@ export class EventosService {
       return e.body;
     });
   }
-  putProducto(evento:Evento){
-    return this.http.put(this.url + '/:id/'  + evento.id_evento, evento).toPromise().then(r => {
+  putEvento(id, eventos: Evento) {
+    return this.http.put(this.url + '/put/' + id + '/', eventos).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  deleteEvento(evento:Evento){
-    return this.http.delete(this.url + '/:id/'  + evento.id_evento).toPromise().then(r => {
+  deleteEvento(id) {
+    return this.http.delete(this.url + '/del/' + id).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  
+
 }
 
