@@ -35,16 +35,16 @@ export class NoticiasService {
     });
   }
 
-  putNoticias(noticias:Noticias){
-    return this.http.put(this.url + '/:id/'  + noticias.id_noticias, noticias).toPromise().then(r => {
+  putNoticias(id, noticias: Noticias) {
+    return this.http.put(this.url + '/put/' + id + '/', noticias).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;
     });
   }
 
-  deleteEvento(noticias:Noticias){
-    return this.http.delete(this.url + '/:id/'  + noticias.id_noticias).toPromise().then(r => {
+  deleteEvento(noticias: Noticias) {
+    return this.http.delete(this.url + '/:id/' + noticias.id_noticias).toPromise().then(r => {
       return r;
     }).catch(e => {
       return e.body;

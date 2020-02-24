@@ -6,6 +6,7 @@ import { EventosService } from '../servicios/eventos.service';
 import { AuthenticationService } from '../servicios/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from '../models/eventos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-crear-evento",
@@ -13,6 +14,7 @@ import { Evento } from '../models/eventos';
   styleUrls: ["./crear-evento.component.css"]
 })
 export class CrearEventoComponent implements OnInit {
+  //variables Utilizadas
   titulo: string;
   qrcodename: number;
   title = "generate-qrcode";
@@ -23,8 +25,10 @@ export class CrearEventoComponent implements OnInit {
   codigo: string;
   eventos:Evento;
   personas: Persona;
-
-  constructor(private eventosService: EventosService,private authenticationService: AuthenticationService, private toastr: ToastrService) {
+ 
+//constructor
+  constructor(private eventosService: EventosService,private authenticationService: AuthenticationService,
+     private toastr: ToastrService, private router:Router) {
     this.eventos = new Evento();
     this.personas = new Persona();
    }
@@ -38,6 +42,7 @@ export class CrearEventoComponent implements OnInit {
       timer: 1800
     })
    }
+   //funcion para guardar eventos en la base
   guardarEvento(){
     this.eventos.puntaje_evento = this.qrcodename;
     this.eventos.codigo_evento = this.codigo;
@@ -48,11 +53,13 @@ export class CrearEventoComponent implements OnInit {
     this.eventosService.postEvento(this.eventos).then(r => {
       this.eventos = r;
       this.toastr.success('Registrado con Exito!', 'Excelente');
+      this.router.navigate(['/inicio'])
     }).catch(e => {
       this.toastr.error('Ha ocurrido un error!', 'Oops algo ha salido mal');
     });
   
   }
+//funcion evaluar producto maximo 100 y minimo 50
   evaluar() {
     if (this.qrcodename <= 100 && this.qrcodename >= 50) {
     } else {
@@ -60,6 +67,7 @@ export class CrearEventoComponent implements OnInit {
       this.qrcodename = null;
     }
   }
+  //funcion para generar un codigo para  de diferentes caracteres para el codgo qr 
   generateQRCode() {
     if (this.qrcodename <= 100 && this.qrcodename >= 50) {
       var abecedario = [
@@ -131,10 +139,11 @@ export class CrearEventoComponent implements OnInit {
       return;
     }
   }
+  //funcion para descargar el codigo qr
   downloadImage() {
     this.href = document.getElementsByTagName('img')[0].src;
   }
-  
+  //funcion salir
   salir(){
     this.eventos=null;
     this.eventos= new Evento;

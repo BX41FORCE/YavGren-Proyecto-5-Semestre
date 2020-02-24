@@ -44,10 +44,14 @@
         <div class="card-body">
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_noticia}}</h5>
           <!--<p class="card-text" style="color: white">{{item.descripcion_noticia}}</p>-->
-          <button class="btn btn-sm btn-success" (click)="verNoticia(item.id_noticia)" type="submit" data-toggle="modal" data-target="#noticiaModal"><i
-              class="far fa-comment-dots"></i> Ver
-            Noticia</button>
-          <!-- Modal -->
+          <br />
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button class="btn btn-sm btn-success" (click)="verNoticia(item.id_noticia)" type="submit"
+              data-toggle="modal" data-target="#noticiaModal"><i class="far fa-comment-dots"></i> Ver</button>
+            <button class="btn btn-sm btn-warning" (click)="verNoticia(item.id_noticia)" type="submit"
+              data-toggle="modal" data-target="#noticiaModalEdicion"><i class="fas fa-edit"></i> Editar</button>
+            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+          </div>
         </div>
       </div>
     </div>
@@ -59,17 +63,17 @@
         <div class="card-body" style="background-color: #082050;">
           <img id="eventoImg" src="../../assets/img/gestionambiental_principal.jpg" style="float: right;" />
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_evento}}</h5>
-          <p class="card-text text-justify" style="color: white;"> <!--Objetivo: {{item.objetivo_evento}}<br />--> Fecha: {{item.fecha_evento|date:"dd/MM/yyyy"}}
+          <p class="card-text text-justify" style="color: white;">
+            <!--Objetivo: {{item.objetivo_evento}}<br />--> Fecha: {{item.fecha_evento|date:"dd/MM/yyyy"}}
             <br />Lugar: {{item.lugar_evento}}</p>
-          <button class="btn btn-sm btn-primary" (click)="verEvento(item.id_evento)" type="submit" data-toggle="modal" data-target="#eventoModal"><i
-              class="fas fa-calendar-day"></i> Ver Evento
+          <button class="btn btn-sm btn-primary" (click)="verEvento(item.id_evento)" type="submit" data-toggle="modal"
+            data-target="#eventoModal"><i class="fas fa-calendar-day"></i> Ver Evento
           </button>
         </div>
       </div>
       <br />
     </div>
   </div>
-
 </div>
 <div class="modal fade" id="noticiaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
   aria-hidden="true">
@@ -92,6 +96,39 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="noticiaModalEdicion" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color: #B8CD33;">Edición de Noticia</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-justify" *ngFor="let item of noticias1">
+        <label for="titulo">Título</label>
+        <input type="text" class="form-control col" placeholder="Título de la noticia" required
+          [(ngModel)]="item.nombre_noticia">
+        <br />
+        <label for="descripcion">Descripción</label>
+        <p></p>
+        <textarea class="col" placeholder="Cuerpo de la Noticia" cols="40" rows="8" style="resize: both;"
+          [(ngModel)]="item.descripcion_noticia"></textarea>
+        <p></p>
+        <div class="modal-footer">
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button class="btn btn-sm btn-success"
+              (click)="actualizarNoticia(item.id_noticia,item.nombre_noticia,item.descripcion_noticia)" type="submit" data-dismiss="modal"><i
+                class="fas fa-save"></i> Guardar</button>
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fas fa-window-close"></i>
+              Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -104,7 +141,7 @@
         </button>
       </div>
       <div class="modal-body text-justify" *ngFor="let item of eventos1">
-       <!-- <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" hspace="5" vspace="5"
+        <!-- <img id="modalImg" src="../../assets/img/gestionambiental_principal.jpg" hspace="5" vspace="5"
           style="float: right;" />-->
         <p>Lugar del evento: {{item.lugar_evento}}</p>
         <p>Fecha del evento: {{item.fecha_evento|date:"dd/MM/yyyy"}}</p>
