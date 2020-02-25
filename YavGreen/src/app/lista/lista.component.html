@@ -1,10 +1,48 @@
 <div class="col-12 order-md-1">
   <div class="card" style="border-color: #B8CD33;">
     <div class="card-body" style="background-color: #3F3F3F;">
+      <h3 align="center" style="color: #B8CD33;">Canjeo de Puntos</h3>
+      <br />
+      <div class="row">
+        <div class="col">
+          <div class="form-inline">
+            <h4 style="color: #B8CD33;">{{nombreUsuario}}</h4>
+            <p style="color: #3F3F3F;">..</p>
+            <h4 style="color: #B8CD33;">{{apellidoUsuario}}</h4>
+            <p style="color: #3F3F3F;">..</p>
+            <input class="form-control mr-sm-2" type="text" placeholder="Correo" [(ngModel)]="email"
+              aria-label="Search">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" style="background-color: #B8CD33;"
+              (click)="verPersona()"><i class="fas fa-search"></i> Buscar</button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-inline">
+            <h5 style="color: #B8CD33;">ID Producto:</h5>
+            <p style="color: #3F3F3F;">.</p>
+            <input type="number" id="quantity" name="quantity" min="1" max="99999" [(ngModel)]="idCanjeo">
+            <p style="color: #3F3F3F;">..</p>
+            <h5 style="color: #B8CD33;">Cantidad:</h5>
+            <p style="color: #3F3F3F;">.</p>
+            <input type="number" id="quantity" name="quantity" min="1" max="5" [(ngModel)]="cantidadCanjeo">
+            <p style="color: #3F3F3F;">..</p>
+            <button class="btn btn-primary my-2 my-sm-0" type="submit" (click)="canjear()"><i
+                class="fas fa-cart-arrow-down"></i>
+              Canjear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="col-12 order-md-1">
+  <div class="card" style="border-color: #B8CD33;">
+    <div class="card-body" style="background-color: #3F3F3F;">
       <h3 align="center" style="color: #B8CD33;">Productos</h3>
       <table class="table">
         <thead>
-          <th scope="col-sm-2" style="color: white;">#</th>
+          <th scope="col-sm-2" style="color: white;">ID</th>
           <th scope="col-sm-2" style="color: white;">Productos</th>
           <th scope="col-sm-8" style="color: white;">Descripción</th>
           <th scope="col-sm-2" style="color: white;">Costo</th>
@@ -29,7 +67,6 @@
       </table>
     </div>
   </div>
-
 </div>
 <br>
 <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
@@ -66,11 +103,16 @@
             <p></p>
             <img id="ImgNoticia" [src]="imgURL" *ngIf="imgURL">
           </div>
-          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"
-            (click)="actualizarproducto(item.id_producto,item.nombre_producto,item.descripcion_producto,item.costo_puntos_producto)">Guardar
-            Cambios</button>
-          <button class="btn btn-outline-white btn-sm" disabled></button>
-          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+          <div class="modal-footer">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+              <button class="btn btn-sm btn-success"
+                (click)="actualizarproducto(item.id_producto,item.nombre_producto,item.descripcion_producto,item.costo_puntos_producto)"
+                type="submit" data-dismiss="modal"><i class="fas fa-save"></i> Guardar</button>
+              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i
+                  class="fas fa-window-close"></i>
+                Cancelar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

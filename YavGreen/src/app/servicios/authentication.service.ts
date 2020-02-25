@@ -32,6 +32,15 @@ export class AuthenticationService {
       return error.body;
     });
   }
+
+  putPersona(id, persona) {
+    return this.http.put(this.url + '/person/put/' + id + "/", persona).toPromise().then(response => {
+      return response;
+    }).catch(error => {
+      return error.body;
+    });
+  }
+
   loginPersona(persona) {
     return this.http.post(this.url + '/people/login', persona).toPromise().then(response => {
       return response;
