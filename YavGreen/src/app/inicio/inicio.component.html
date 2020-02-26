@@ -181,7 +181,7 @@
         <br />
         <label for="fecha">Fecha del Evento</label>
         <input type="date" id="inputDate" class="form-control col" [ngModel]="item.fecha_evento|date:'yyyy-MM-dd'"
-          (ngModelChange)="item.fecha_evento=$event" name="fecha_evento" placeholder="Fecha del evento" required>
+          (ngModelChange)="item.fecha_evento=$event" name="fecha_evento" placeholder="Fecha del evento">
         <br />
         <label for="lugar">Lugar del Evento</label>
         <input type="text" class="form-control col" placeholder="Lugar del evento" required
@@ -194,7 +194,7 @@
         <br />
         <label for="puntaje">Puntaje total del objetivo</label>
         <input type="number" min="50" max="100" class="form-control col"
-          placeholder="Ingrese un valor entre 50 y 100 puntos" [(ngModel)]="item.puntaje_evento" required>
+          placeholder="Ingrese un valor entre 50 y 100 puntos" [(ngModel)]="item.puntaje_evento" disabled>
         <br />
         <label for="puntaje">Código del Evento</label>
         <input class="form-control col" placeholder="Código del Evento" [(ngModel)]="item.codigo_evento" disabled>
@@ -211,7 +211,7 @@
         <div class="modal-footer">
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button class="btn btn-sm btn-success"
-              (click)="actualizarEvento(item.id_evento,item.nombre_evento,item.fecha_evento,item.lugar_evento,item.objetivo_evento,item.puntaje_evento)"
+              (click)="actualizarEvento(item.id_evento,item.nombre_evento,item.fecha_evento,item.lugar_evento,item.objetivo_evento)"
               type="submit" data-dismiss="modal"><i class="fas fa-save"></i> Guardar</button>
             <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fas fa-window-close"></i>
               Cancelar</button>
