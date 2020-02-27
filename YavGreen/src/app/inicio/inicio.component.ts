@@ -49,7 +49,7 @@ export class InicioComponent implements OnInit {
 
   verFotoEvento() {
     var imagen = Math.floor(Math.random() * (10 - 1)) + 1;
-    this.fotoEvento = '../../assets/img/inicio' + imagen + '.jpg'
+    this.fotoEvento = imagen;
   }
   verFotoNoticia() {
     var imagen = Math.floor(Math.random() * (10 - 1)) + 1;
