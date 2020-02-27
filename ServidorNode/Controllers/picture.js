@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../database')
 
+
 router.get('/get', function (req, res) {
     db.select().from('imagenes').then(function (data) {
         res.send(data);
@@ -9,7 +10,7 @@ router.get('/get', function (req, res) {
 });
 
 router.post('/post', function (req, res) {
-    db.insert(req.body).returning('*').into('imagenes').then(function (data) {
+    db.insert(req.body).into('imagenes').then(function (data) {
         res.send(data);
     });
 });

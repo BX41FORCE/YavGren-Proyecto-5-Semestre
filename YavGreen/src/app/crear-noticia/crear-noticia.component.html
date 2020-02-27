@@ -13,9 +13,12 @@
                 </div>
                 <div class="col">
                     <label for="imagen">Seleccionar Imagen</label>
-                    <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+                    <input #file type="file"  accept='image/*' (change)="preview(file.files); CodificarArchivo($event); " />
                     <p></p>
                     <img id="ImgNoticia" [src]="imgURL" *ngIf="imgURL">
+                    <br>
+                    <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" type="submit" (click)="guardarImagen()">Guardar Imagen</button>
+                
                 </div>
             </div>
         <div class="row col-6">
