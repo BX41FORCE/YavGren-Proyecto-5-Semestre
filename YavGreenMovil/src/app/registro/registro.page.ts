@@ -39,7 +39,7 @@ export class RegistroPage implements OnInit {
           title: 'Registrado'
         })
         //this.toastr.success('Registrado con Exito!', 'Excelente');
-        this.router.navigateByUrl('/inicio');
+        this.router.navigateByUrl('/login');
       }).catch(e => {
         Swal.fire({
           timer: 1700,

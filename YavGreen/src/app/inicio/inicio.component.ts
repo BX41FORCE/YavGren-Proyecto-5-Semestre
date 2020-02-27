@@ -24,6 +24,8 @@ export class InicioComponent implements OnInit {
   noticias1: any = [];
   noticiaEdicion: Noticias;
   eventoEdicion: Evento;
+  fotoEvento: any;
+  fotoNoticia: any;
   //Variables para la edición con QR
   title = "generate-qrcode";
   elementType: "url" | "canvas" | "img" = "url";
@@ -43,6 +45,15 @@ export class InicioComponent implements OnInit {
     this.obtenerEventos();
     this.obtenerNoticias();
     this.authenticationService.getPersonaLS();
+  }
+
+  verFotoEvento() {
+    var imagen = Math.floor(Math.random() * (10 - 1)) + 1;
+    this.fotoEvento = '../../assets/img/inicio' + imagen + '.jpg'
+  }
+  verFotoNoticia() {
+    var imagen = Math.floor(Math.random() * (10 - 1)) + 1;
+    this.fotoNoticia = '../../assets/img/inicio' + imagen + '.jpg'
   }
   //funcion para obtener todos los eventos de la base
   obtenerEventos() {
@@ -72,6 +83,7 @@ export class InicioComponent implements OnInit {
     }).catch(error => {
       this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
     });
+    this.verFotoNoticia();
   }
 
   //funcion para obtener una evento de la base
