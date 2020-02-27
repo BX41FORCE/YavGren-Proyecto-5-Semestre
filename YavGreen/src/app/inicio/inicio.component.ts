@@ -44,6 +44,15 @@ export class InicioComponent implements OnInit {
     this.obtenerNoticias();
     this.authenticationService.getPersonaLS();
   }
+
+  verFotoEvento() {
+    var imagen = Math.floor(Math.random() * (10 - 1)) + 1;
+    this.fotoEvento = imagen;
+  }
+  verFotoNoticia() {
+    var imagen = Math.floor(Math.random() * (10 - 1)) + 1;
+    this.fotoNoticia = '../../assets/img/inicio' + imagen + '.jpg'
+  }
   //funcion para obtener todos los eventos de la base
   obtenerEventos() {
     console.log(this.eventos);

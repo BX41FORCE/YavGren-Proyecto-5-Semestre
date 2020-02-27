@@ -62,7 +62,8 @@
     <div class="col-sm-6" *ngFor="let item of eventos ">
       <div class="card" style="border-color: #B8CD33;">
         <div class="card-body" style="background-color: #082050;">
-          <img id="eventoImg" src="../../assets/img/gestionambiental_principal.jpg" style="float: right;" />
+          <img id="eventoImg" src="../../assets/img/inicio{{fotoEvento}}.jpg" style="float: right;" />
+          <span>{{verFotoEvento()}}</span>
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_evento}}</h5>
           <p class="card-text text-justify" style="color: white;">
             <!--Objetivo: {{item.objetivo_evento}}<br />--> Fecha: {{item.fecha_evento|date:"dd/MM/yyyy"}}
