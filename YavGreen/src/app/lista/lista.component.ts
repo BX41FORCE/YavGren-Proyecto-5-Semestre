@@ -102,7 +102,8 @@ export class ListaComponent implements OnInit {
           this.usuario.puntaje_persona = calculo;
           this.authenticationService.putPersona(this.idUsuario, this.usuario).then(r => {
             this.toastr.success('', 'Canjeo Extitoso!')
-            setTimeout(function () { location.reload() }, 1000);
+            this.toastr.info('', 'Reinicie Sesión en el dispositivo!')
+            setTimeout(function () { location.reload() }, 2000);
           }).catch(e => {
             this.toastr.error('','Error al Cajear');
           });

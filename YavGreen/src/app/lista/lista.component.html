@@ -56,11 +56,11 @@
             <td scope="col-sm-8" style="color: white;">{{item.descripcion_producto}}</td>
             <td scope="col-sm-2" style="color: white;">{{item.costo_puntos_producto}}</td>
             <td scope="col-sm-2">
-              <button class="btn btn-lg btn-outline-secondary btn-sm" style="background-color: #B8CD33;" type="submit"
-                data-toggle="modal" data-target="#eventoModal" (click)="verProducto(item.id_producto)">Editar</button>
+              <button class="btn btn-lg btn-warning btn-sm" type="submit" data-toggle="modal" data-target="#eventoModal"
+                (click)="verProducto(item.id_producto)"><i class="fas fa-edit"></i> Editar</button>
               <button class="btn btn-outline-white btn-sm" disabled></button>
-              <button class="btn btn-lg btn-outline-dark btn-sm" style="background-color: #F54A4B;" type="submit"
-                (click)="eliminarProducto(item.id_producto)">Eliminar</button>
+              <button class="btn btn-lg btn-danger btn-sm" type="submit" (click)="eliminarProducto(item.id_producto)"><i
+                  class="fas fa-trash"></i> Eliminar</button>
             </td>
           </tr>
         </tbody>
@@ -81,37 +81,31 @@
         </button>
       </div>
       <div class="modal-body text-justify" *ngFor="let item of productos1">
-        <div class="row">
-          <div class="col">
-            <label for="titulo">Nombre del Producto</label>
-            <input type="text" class="form-control col" placeholder="Nombre del Producto"
-              [(ngModel)]="item.nombre_producto">
-            <br />
-            <label for="descripcion">Descripción del producto</label>
-            <p> </p>
-            <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;"
-              [(ngModel)]="item.descripcion_producto"></textarea>
-            <p></p>
-          </div>
-          <div class="col">
-            <label for="puntaje">Puntaje del Producto</label>
-            <input type="number" min="50" max="100" class="form-control col" placeholder="Puntaje del Porducto"
-              [(ngModel)]="item.costo_puntos_producto">
-            <br />
+        <label for="titulo">Nombre del Producto</label>
+        <input type="text" class="form-control col" placeholder="Nombre del Producto"
+          [(ngModel)]="item.nombre_producto">
+        <br />
+        <label for="descripcion">Descripción del producto</label>
+        <p> </p>
+        <textarea class="col" placeholder="Descripción del Porducto" cols="40" rows="8" style="resize: both;"
+          [(ngModel)]="item.descripcion_producto"></textarea>
+        <p></p>
+        <label for="puntaje">Puntaje del Producto</label>
+        <input type="number" min="50" max="100" class="form-control col" placeholder="Puntaje del Porducto"
+          [(ngModel)]="item.costo_puntos_producto">
+        <br />
+        <!--
             <label for="imagen">Seleccionar Imagen</label>
             <input #file type="file" accept='image/*' (change)="preview(file.files)" />
             <p></p>
-            <img id="ImgNoticia" [src]="imgURL" *ngIf="imgURL">
-          </div>
-          <div class="modal-footer">
-            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-              <button class="btn btn-sm btn-success"
-                (click)="actualizarproducto(item.id_producto,item.nombre_producto,item.descripcion_producto,item.costo_puntos_producto)"
-                type="submit" data-dismiss="modal"><i class="fas fa-save"></i> Guardar</button>
-              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i
-                  class="fas fa-window-close"></i>
-                Cancelar</button>
-            </div>
+            <img id="ImgNoticia" [src]="imgURL" *ngIf="imgURL">-->
+        <div class="modal-footer">
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button class="btn btn-sm btn-success"
+              (click)="actualizarproducto(item.id_producto,item.nombre_producto,item.descripcion_producto,item.costo_puntos_producto)"
+              type="submit" data-dismiss="modal"><i class="fas fa-save"></i> Guardar</button>
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fas fa-window-close"></i>
+              Cancelar</button>
           </div>
         </div>
       </div>

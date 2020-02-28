@@ -24,6 +24,8 @@ export class InicioComponent implements OnInit {
   noticias1: any = [];
   noticiaEdicion: Noticias;
   eventoEdicion: Evento;
+  fotoEvento: any;
+  fotoNoticia: any;
   //Variables para la edición con QR
   title = "generate-qrcode";
   elementType: "url" | "canvas" | "img" = "url";
@@ -81,6 +83,7 @@ export class InicioComponent implements OnInit {
     }).catch(error => {
       this.toastr.error('Aun no hay noticias disponibles!', 'Oops algo ha salido mal!');
     });
+    this.verFotoNoticia();
   }
 
   //funcion para obtener una evento de la base
@@ -88,6 +91,8 @@ export class InicioComponent implements OnInit {
     console.log(this.eventos1);
     this.eventosServices.getEventoById(id).then(respuesta => {
       this.eventos1 = respuesta;
+      const current = new Date(respuesta[0].fecha_evento);
+      this.eventos1[0].fecha_evento = current.toLocaleDateString("sv-SE");
     }).catch(error => {
       this.toastr.error('Aun no hay eventos disponibles!', 'Oops algo ha salido mal!');
     });
@@ -154,13 +159,13 @@ export class InicioComponent implements OnInit {
     this.href = document.getElementsByTagName('img')[0].src;
   }
 
-  actualizarEvento(id, nombre, fecha: Date, lugar, objetivo, puntaje) {
+  actualizarEvento(id, nombre, fecha: Date, lugar, objetivo/*, puntaje*/) {
     console.log(id)
     this.eventoEdicion.nombre_evento = nombre;
     this.eventoEdicion.fecha_evento = fecha;
     this.eventoEdicion.lugar_evento = lugar;
     this.eventoEdicion.objetivo_evento = objetivo;
-    this.eventoEdicion.puntaje_evento = puntaje;
+    // this.eventoEdicion.puntaje_evento = puntaje;
     this.eventosServices.putEvento(id, this.eventoEdicion).then(respuesta => {
       this.toastr.success('Actualización con Exito!', 'Excelente');
       this.obtenerEventos();

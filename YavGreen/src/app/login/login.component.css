@@ -1,6 +1,17 @@
 #img {
     width: 730px;
-    height: 500px;
+    height: 465px;
     border-radius: 6px;
   }
   
+
+  @media (max-width: 991px){
+    #img {
+      width: 730px;
+      height: 465px;
+      border-radius: 6px;
+      visibility: hidden;
+      
+    }
+
+  }

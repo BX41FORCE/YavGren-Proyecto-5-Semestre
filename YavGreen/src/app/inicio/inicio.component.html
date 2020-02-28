@@ -2,7 +2,7 @@
   <div class="jumbotron p-4 p-md-5 text-white rounded" style="background-color: #3F3F3F;">
     <div class="row flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic" style="color:#B8CD33;">Bienvenido a <img id="logo"
+        <h1 class="display-4 font-italic" style="color:#B8CD33;">Bienvenido a <img  id="logo"
             src="../../assets/img/YavGreen.png" /></h1>
         <p class="lead my-3">Aquí podras encontrar información y noticias ecológicas
           <br /> ¡No te olvides de revisar los eventos que tenemos par tí!</p>
@@ -39,27 +39,30 @@
   </div>
   <h3 style="color:#B8CD33;">Noticias</h3>
   <div class="row">
-    <div class="col-3" *ngFor="let item of noticias">
-      <div class="card mb-3" style="border-color: #B8CD33; background-color: rgb(80, 75, 80);">
+    <div class="col-sm-4" *ngFor="let item of noticias">
+      <div class="card sm-4" style="border-color: #B8CD33; background-color: rgb(80, 75, 80);">
         <div class="card-body">
           <h5 class="card-title" style="color: #B8CD33;">{{item.nombre_noticia}}</h5>
           <!--<p class="card-text" style="color: white">{{item.descripcion_noticia}}</p>-->
-          <br />
+          <br >
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button class="btn btn-sm btn-success" (click)="verNoticia(item.id_noticia)" type="submit"
+           
+            <button class="btn btn-sm btn-success btn-sm" (click)="verNoticia(item.id_noticia)" type="submit"
               data-toggle="modal" data-target="#noticiaModal"><i class="far fa-comment-dots"></i> Ver</button>
-            <button class="btn btn-sm btn-warning" (click)="verNoticia(item.id_noticia)" type="submit"
-              data-toggle="modal" data-target="#noticiaModalEdicion"><i class="fas fa-edit"></i> Editar</button>
-            <button type="button" class="btn btn-sm btn-danger"
-              (click)="eliminarNoticia(item.id_noticia)">Eliminar</button>
+            <button class="btn btn-sm btn-warning btn-sm" (click)="verNoticia(item.id_noticia)" type="submit"
+              data-toggle="modal" data-target="#noticiaModalEdicion"><i class="fas fa-edit"></i>Editar </button>
+            <button type="button" class="btn btn-sm btn-danger btn-sm"
+              (click)="eliminarNoticia(item.id_noticia)"><i
+              class="fas fa-trash"></i>  Eliminar</button>
           </div>
         </div>
       </div>
+      <br>
     </div>
   </div>
   <h3 style="color:#B8CD33;">Eventos</h3>
   <div class="row">
-    <div class="col-sm-6" *ngFor="let item of eventos ">
+    <div class="col-sm-6" *ngFor="let item of eventos">
       <div class="card" style="border-color: #B8CD33;">
         <div class="card-body" style="background-color: #082050;">
           <img id="eventoImg" src="../../assets/img/inicio{{verFotoEvento()}}.jpg" style="float: right;" />
@@ -83,7 +86,7 @@
   </div>
 </div>
 <div class="modal fade" id="noticiaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
-  aria-hidden="true">
+  aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.719);">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,7 +97,7 @@
         </button>
       </div>
       <div class="modal-body text-justify" *ngFor="let item of noticias1">
-        <img id="modalImg" src="../../assets/img/Reciclaje.jpg" hspace="5" vspace="5" style="float: right;" />
+        <img id="modalImg" src="{{fotoNoticia}}" hspace="5" vspace="5" style="float: right;" />
         {{item.descripcion_noticia}}
       </div>
       <div class="modal-footer">
@@ -104,7 +107,7 @@
   </div>
 </div>
 <div class="modal fade" id="noticiaModalEdicion" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.719);">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -137,7 +140,7 @@
   </div>
 </div>
 <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
-  aria-hidden="true">
+  aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.719);">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -165,7 +168,7 @@
   </div>
 </div>
 <div class="modal fade" id="eventoModalEdicion" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.719);">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -181,7 +184,7 @@
         <br />
         <label for="fecha">Fecha del Evento</label>
         <input type="date" id="inputDate" class="form-control col" [ngModel]="item.fecha_evento|date:'yyyy-MM-dd'"
-          (ngModelChange)="item.fecha_evento=$event" name="fecha_evento" placeholder="Fecha del evento" required>
+          (ngModelChange)="item.fecha_evento=$event" name="fecha_evento" placeholder="Fecha del evento">
         <br />
         <label for="lugar">Lugar del Evento</label>
         <input type="text" class="form-control col" placeholder="Lugar del evento" required
@@ -194,7 +197,7 @@
         <br />
         <label for="puntaje">Puntaje total del objetivo</label>
         <input type="number" min="50" max="100" class="form-control col"
-          placeholder="Ingrese un valor entre 50 y 100 puntos" [(ngModel)]="item.puntaje_evento" required>
+          placeholder="Ingrese un valor entre 50 y 100 puntos" [(ngModel)]="item.puntaje_evento" disabled>
         <br />
         <label for="puntaje">Código del Evento</label>
         <input class="form-control col" placeholder="Código del Evento" [(ngModel)]="item.codigo_evento" disabled>
@@ -211,7 +214,7 @@
         <div class="modal-footer">
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button class="btn btn-sm btn-success"
-              (click)="actualizarEvento(item.id_evento,item.nombre_evento,item.fecha_evento,item.lugar_evento,item.objetivo_evento,item.puntaje_evento)"
+              (click)="actualizarEvento(item.id_evento,item.nombre_evento,item.fecha_evento,item.lugar_evento,item.objetivo_evento)"
               type="submit" data-dismiss="modal"><i class="fas fa-save"></i> Guardar</button>
             <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fas fa-window-close"></i>
               Cancelar</button>
